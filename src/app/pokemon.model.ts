@@ -7,10 +7,10 @@ export class Pokemon {
     public currentLevelXP: number,
     public totalLevelXP: number,
     public totalAccruedXP: number,
-    public currentHP: number;
-    public maxHP: number;
-    public activeMoves: string[];
-    public allMoves: string[];
-    public playerActive: boolean;
+    public currentHP: number,
+    public maxHP: number,
+    public activeMoves: string[],
+    public allMoves: string[],
+    public playerActive: boolean,
   ) {}
 }
