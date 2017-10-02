@@ -1,3 +1,11 @@
+#How To Contribute
+- git clone from https://github.com/JStein92/pokemon-adventure
+- create a fork from the master github repository
+- git checkout -b <branch-name>
+- commit to your fork throughout coding
+- push to the forked github repository
+- on github, click "new pull request" on your fork to merge changes
+
 # PokemonAdventure
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
