@@ -1,0 +1,20 @@
+{
+  "name": "pokemon-adventure",
+  "description": "",
+  "main": "",
+  "authors": [
+    "js <jonathanstein@live.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  "bootstrap": "4.0.0-beta"
+}
+}
