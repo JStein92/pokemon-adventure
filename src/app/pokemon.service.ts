@@ -8,11 +8,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class PokemonService {
 
 habitats: FirebaseListObservable<any[]>;
-
+myPokemon: FirebaseListObservable<any[]>;
 
 
 constructor(private http: Http, private database: AngularFireDatabase) {
-
+  this.myPokemon = database.list('myPokemon');
   this.habitats = database.list('habitats');
 }
 
@@ -34,6 +34,10 @@ constructor(private http: Http, private database: AngularFireDatabase) {
 
   getHabitats(){
     return this.habitats;
+  }
+
+  catchPokemon(pokemonToAdd){
+    this.myPokemon.push(pokemonToAdd);
   }
 
 

@@ -1,12 +1,47 @@
-<div class="container">
-  <label for="">Search Type</label>
-  <input type="text" name="" value="" #type>
-  <button type="button" name="button" (click)="searchType(type.value)">Search Type</button>
-</div>
-
 <div *ngIf="habitats">
   <div *ngFor="let habitat of habitats">
-    <h1>{{habitat.name}}     <button type="button" name="button" (click)="searchHabitat(habitat)">Search</button></h1>
-
+    <h1>{{habitat.name}} <input type="number" name="" value="" #difficulty> <button type="button" name="button" (click)="searchHabitat(habitat, difficulty.value)">Search</button></h1>
   </div>
+</div>
+
+<br>
+
+<div class="catchTestPokemon">
+  <h1>Catch test pokemon (Adds to Firebase)</h1>
+
+  <label for="">name</label>
+  <input class="form-control" type="text" #name>
+
+  <label for="">type</label>
+  <input class="form-control" type="text" #types>
+
+  <label for="">level</label>
+  <input class="form-control" type="number" #level>
+
+  <label for="">currentLevelXP</label>
+  <input class="form-control" type="number" #currentLevelXP>
+
+  <label for="">totalLevelXP</label>
+  <input class="form-control" type="number" #totalLevelXP>
+
+  <label for="">totalAccruedXP</label>
+  <input class="form-control" type="number" #totalAccruedXP>
+
+  <label for="">currentHP</label>
+  <input class="form-control" type="number" #currentHP>
+
+  <label for="">maxHP</label>
+  <input class="form-control" type="number" #maxHP>
+
+  <label for="">activeMoves</label>
+  <input class="form-control" type="text" #activeMoves>
+
+  <label for="">allMoves</label>
+  <input class="form-control" type="text" #allMoves>
+
+  <label for="">playerActive</label>
+  <input class="form-control" type="text" #playerActive>
+
+  <button type="button" name="button" (click)="catchTestPokemon(name.value,types.value,level.value,currentLevelXP.value,totalLevelXP.value,totalAccruedXP.value,currentHP.value,maxHP.value,activeMoves.value,allMoves.value,playerActive.value)">Create</button>
+
 </div>

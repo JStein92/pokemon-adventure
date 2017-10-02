@@ -2,7 +2,7 @@ export class Pokemon {
 
   constructor(
     public name: string,
-    public type: string[],
+    public types: string[],
     public level: number,
     public currentLevelXP: number,
     public totalLevelXP: number,
@@ -11,6 +11,6 @@ export class Pokemon {
     public maxHP: number,
     public activeMoves: string[],
     public allMoves: string[],
-    public playerActive: boolean,
+    public playerActive: boolean
   ) {}
 }

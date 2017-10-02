@@ -7,7 +7,7 @@ import { PokemonService } from '../pokemon.service';
   selector: 'app-battle',
   templateUrl: './battle.component.html',
   styleUrls: ['./battle.component.css'],
-  providers: [PokemonService, Pokemon]
+  providers: [PokemonService]
 })
 export class BattleComponent implements OnInit {
 
