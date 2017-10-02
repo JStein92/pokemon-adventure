@@ -1,3 +1,12 @@
-<p>
-  get-pokemon works!
-</p>
+<div class="container">
+  <label for="">Search Type</label>
+  <input type="text" name="" value="" #type>
+  <button type="button" name="button" (click)="searchType(type.value)">Search Type</button>
+</div>
+
+<div *ngIf="habitats">
+  <div *ngFor="let habitat of habitats">
+    <h1>{{habitat.name}}     <button type="button" name="button" (click)="searchHabitat(habitat)">Search</button></h1>
+
+  </div>
+</div>

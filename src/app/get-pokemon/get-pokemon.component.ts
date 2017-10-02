@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-get-pokemon',
@@ -10,12 +11,28 @@ import { PokemonService } from '../pokemon.service';
 export class GetPokemonComponent implements OnInit {
 
   returnedData;
-
-  apiURL:string = "http://pokeapi.co/api/v2/pokemon/1" //return bulbasaur
+  habitats = null;
+  allPokemon = [];
+  apiURL:string = "http://pokeapi.co/api/v2/";
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.pokemonService.getHabitats().subscribe(habitat=>{
+      this.habitats = (habitat);
+      console.log(this.habitats)
+    })
+
+  }
+
+  searchHabitat(habitatToSearch){
+    let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
+    console.log(habitatToSearch.pokemon_species[randomPokemon].name)
+    this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;
+    this.apiCall()
+  }
+
+  apiCall(){
     this.pokemonService.getData(this.apiURL).subscribe(
       returnedJSON => {
           this.returnedData = returnedJSON;
@@ -24,13 +41,12 @@ export class GetPokemonComponent implements OnInit {
           console.log("ERROR: ",returnedJSON);
       },
       () => {
-          console.log("Completed");
-          this.showData();
+          console.log(this.returnedData);
       }
     );
   }
 
-  showData() {
+  showName() {
     let name = this.returnedData.name;
     console.log(name);
   }

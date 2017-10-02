@@ -2,13 +2,19 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class PokemonService {
 
+habitats: FirebaseListObservable<any[]>;
 
 
-constructor(private http: Http) {}
+
+constructor(private http: Http, private database: AngularFireDatabase) {
+
+  this.habitats = database.list('habitats');
+}
 
   getData(apiURL) {
     return this.http.get(apiURL)
@@ -26,7 +32,9 @@ constructor(private http: Http) {}
     return Observable.throw(errMsg);
   }
 
-
+  getHabitats(){
+    return this.habitats;
+  }
 
 
 }
