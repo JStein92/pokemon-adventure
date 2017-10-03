@@ -44,7 +44,6 @@ export class BattleComponent implements OnInit {
       this.checkOpponentKO();
       console.log("pokemon1 HP: " + this.myPokemon.currentHP);
       console.log("pokemon2 HP: " + this.myPokemon2.currentHP);
-      // this.checkBattleOver();
     } while (this.battling);
   }
 

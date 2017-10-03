@@ -1,2 +1,23 @@
-<!-- <app-get-pokemon></app-get-pokemon> -->
-<app-battle></app-battle>
+<!-- <app-get-pokemon></app-get-pokemon>
+<app-battle></app-battle> -->
+ <!-- <router-outlet></router-outlet> -->
+ {{title}}
+ <nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <div class="navbar-header">
+       <a class="navbar-brand" routerLink="battle">Battle</a>
+        <a class="navbar-brand" routerLink="getPokeman">get-pokemon</a>
+     </div>
+     <ul class="nav navbar-nav navbar-right">
+       <li *ngIf="isLoggedIn">
+         <a>{{userName}}</a>
+         <a (click)="logout()">Log out</a>
+       </li>
+       <li *ngIf ="!isLoggedIn">
+         <a (click)="login()">Log in</a>
+       </li>
+     </ul>
+   </div>
+ </nav>
+
+ <router-outlet></router-outlet>
