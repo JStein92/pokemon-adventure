@@ -13,6 +13,7 @@ import * as firebase from "firebase";
   styleUrls: ['./get-pokemon.component.css'],
   providers:[PokemonService]
 })
+
 export class GetPokemonComponent implements OnInit {
 private user;
   returnedData;
