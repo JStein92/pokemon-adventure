@@ -40,5 +40,11 @@ constructor(private http: Http, private database: AngularFireDatabase) {
     this.myPokemon.push(pokemonToAdd);
   }
 
+  getHabitatById(habitatId) {
+    console.log(habitatId);
+    let returnedHabitat = this.database.object('habitats/' + habitatId);
+    console.log(returnedHabitat);
+    return returnedHabitat;
+  }
 
 }

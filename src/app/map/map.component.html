@@ -1,0 +1,9 @@
+<img src="../assets/images/map.jpg" alt="">
+
+<div>
+  <div *ngFor="let habitat of habitats" >
+    <h1 (click)="goToHabitat(habitat)">{{habitat.name}}</h1>
+  </div>
+</div>
+
+<app-my-pokemon></app-my-pokemon>

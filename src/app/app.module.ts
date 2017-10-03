@@ -11,6 +11,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
+import { MapComponent } from './map/map.component';
+import { MyPokemonComponent } from './my-pokemon/my-pokemon.component';
+import { HabitatComponent } from './habitat/habitat.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -22,7 +25,10 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     GetPokemonComponent,
-    BattleComponent
+    BattleComponent,
+    MapComponent,
+    MyPokemonComponent,
+    HabitatComponent
   ],
   imports: [
     BrowserModule,HttpModule,
