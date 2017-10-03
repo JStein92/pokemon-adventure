@@ -2,6 +2,7 @@ export class Pokemon {
 
   constructor(
     public name: string,
+    public sprites: string[],
     public types: string[],
     public level: number,
     public currentLevelXP: number,
