@@ -3,6 +3,10 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { Pokemon } from '../pokemon.model';
 import { PokemonService } from '../pokemon.service';
 
+import { AuthenticationService } from '../authentication.service';
+import * as firebase from "firebase";
+
+
 @Component({
   selector: 'app-get-pokemon',
   templateUrl: './get-pokemon.component.html',
@@ -10,14 +14,14 @@ import { PokemonService } from '../pokemon.service';
   providers:[PokemonService]
 })
 export class GetPokemonComponent implements OnInit {
-
+private user;
   returnedData;
   habitats = null;
   apiURL:string = "http://pokeapi.co/api/v2/";
 
   difficulty;
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, public authService: AuthenticationService) { }
 
   ngOnInit() {
     this.pokemonService.getHabitats().subscribe(habitat=>{
@@ -27,6 +31,11 @@ export class GetPokemonComponent implements OnInit {
     })
 
   }
+
+  ngDoCheck() {
+  this.user = firebase.auth().currentUser;
+  console.log(this.user);
+}
 
   searchHabitat(habitatToSearch, difficulty){
     let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
