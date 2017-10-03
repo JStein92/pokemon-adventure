@@ -19,10 +19,10 @@ export class BattleComponent implements OnInit {
 
   constructor(public pokemonService: PokemonService) {
 
-    this.myPokemon = new Pokemon('charmander', ['fire', 'dragon'], 3, 100, 400, 600, 49, 50, 5, 5, 3, ['tail lash', 'char'], ['all'], true);
-    this.myPokemon2 = new Pokemon('squirtle', ['water'], 3, 100, 400, 600, 49, 50, 3, 4, 6, ['water gun', 'tail whip'], ['all'], true);
+    this.myPokemon = new Pokemon('charmander', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'], ['fire', 'dragon'], 3, 100, 400, 600, 49, 50, 5, 5, 3, ['tail lash', 'char'], ['all'], true);
+    this.myPokemon2 = new Pokemon('squirtle', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png'], ['water'], 3, 100, 400, 600, 49, 50, 3, 4, 6, ['water gun', 'tail whip'], ['all'], true);
 
-    this.opponent = new Pokemon('bulbasaur', ['grass', 'dragon'], 3, 100, 400, 600, 49, 50, 3, 5, 5, ['vine whip', 'sunbeam'], ['all'], false);
+    this.opponent = new Pokemon('bulbasaur', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'], ['grass', 'dragon'], 3, 100, 400, 600, 49, 50, 3, 5, 5, ['vine whip', 'sunbeam'], ['all'], false);
 
     this.player = new Player("Ash", [], [this.myPokemon, this.myPokemon2]);
 
@@ -37,15 +37,58 @@ export class BattleComponent implements OnInit {
   }
   commenceBattle() {
     let turn = 1;
-    do {
-      this.myPokemon.currentHP -= 5;
-      this.myPokemon2.currentHP -= 10;
-      this.checkAllActivePokemonUnconscious();
-      this.checkOpponentKO();
-      console.log("pokemon1 HP: " + this.myPokemon.currentHP);
-      console.log("pokemon2 HP: " + this.myPokemon2.currentHP);
-    } while (this.battling);
+    if (this.myPokemon.speed > this.opponent.speed) {
+      this.playerTurn();
+      this.opponentTurn();
+      if (this.checkOpponentKO()) {
+       console.log("You defeated " + this.opponent.name + '!');
+      }
+    } else {
+      this.opponentTurn();
+      this.playerTurn();
+    }
   }
+  //   do {
+  //     if (this.myPokemon.speed > this.opponent.speed) {
+  //       this.playerTurn();
+  //
+  //         break;
+  //       }
+  //       this.opponentTurn();
+  //       if (this.checkActivePokemonUnconscious()) {
+  //         if (this.checkAllActivePokemonUnconscious()) {
+  //           alert("All pokemon fainted!");
+  //           break;
+  //         } else {
+  //           alert("You must switch pokemon!");
+  //           break;
+  //         }
+  //       }
+  //     } else {
+  //       this.opponentTurn();
+  //       if (this.checkActivePokemonUnconscious()) {
+  //         if (this.checkAllActivePokemonUnconscious()) {
+  //           alert("All pokemon fainted!");
+  //           break;
+  //         } else {
+  //           alert("You must switch pokemon!");
+  //           break;
+  //         }
+  //       } else {
+  //         this.playerTurn();
+  //         if (this.checkOpponentKO()) {
+  //           console.log("You defeated " + this.opponent.name + '!');
+  //           break;
+  //         }
+  //       }
+  //     }
+  //
+  //     console.log(this.myPokemon.name + "'s HP: " + this.myPokemon.currentHP);
+  //     console.log(this.opponent.name + "'s HP: " + this.opponent.currentHP);
+  //     console.log("TURN" + turn);
+  //     turn++;
+  //   } while (this.battling);
+  // }
 
   checkAllActivePokemonUnconscious() {
     let unconsciousCount = 0;
@@ -66,6 +109,7 @@ export class BattleComponent implements OnInit {
   checkOpponentKO() {
     if(this.opponent.currentHP <= 0) {
       this.battling = false;
+      return true;
     }
   }
 
@@ -84,5 +128,24 @@ export class BattleComponent implements OnInit {
 
   switchPokemon(selectedPokemon: Pokemon) {
     this.myPokemon = selectedPokemon;
+  }
+
+  playerTurn() {
+    let damageDealt = this.myPokemon.attack - this.opponent.defense;
+
+    if (damageDealt <= 0) {
+      damageDealt = 1;
+    }
+    this.opponent.currentHP = this.opponent.currentHP - damageDealt;
+    console.log(this.myPokemon.name + ' did ' + damageDealt + ' damage to ' + this.opponent.name + '!');
+  }
+
+  opponentTurn() {
+    this.myPokemon.currentHP -= 2;
+    console.log(this.opponent.name + ' did 2 damage to ' + this.myPokemon.name + '!');
+  }
+
+  checkActivePokemonUnconscious() {
+    return (this.myPokemon.currentHP <= 0);
   }
 }
