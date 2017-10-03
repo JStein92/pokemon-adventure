@@ -41,7 +41,7 @@ constructor(private http: Http, private database: AngularFireDatabase) {
   }
 
   getHabitatById(habitatId) {
-    console.log(habitatId);
+    habitatId -= 1;
     let returnedHabitat = this.database.object('habitats/' + habitatId);
     console.log(returnedHabitat);
     return returnedHabitat;

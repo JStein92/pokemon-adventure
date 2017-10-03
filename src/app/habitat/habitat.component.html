@@ -1,2 +1,4 @@
 <h1>Hi Friends!</h1>
-<h2>{{habitatToDisplay.name}}</h2>
+<label for="">Difficulty</label>
+<input type="number" name="" value="" #difficulty>
+<h2>{{habitatToDisplay.name}}  <button type="button" name="button" (click)="searchHabitat(habitatToDisplay, difficulty.value)">Search</button></h2>

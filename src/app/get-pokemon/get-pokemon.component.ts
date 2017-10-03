@@ -37,29 +37,29 @@ private user;
   console.log(this.user);
 }
 
-  searchHabitat(habitatToSearch, difficulty){
-    let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
-    //console.log(habitatToSearch.pokemon_species[randomPokemon].name)
-    this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;
-    this.difficulty = difficulty;
-    this.apiCall()
-  }
+  // searchHabitat(habitatToSearch, difficulty){
+  //   let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
+  //   //console.log(habitatToSearch.pokemon_species[randomPokemon].name)
+  //   this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;
+  //   this.difficulty = difficulty;
+  //   this.apiCall()
+  // }
 
-  apiCall(){
-    this.pokemonService.getData(this.apiURL).subscribe(
-      returnedJSON => {
-          this.returnedData = returnedJSON;
-        },
-      returnedJSON => {
-          console.log("ERROR: ",returnedJSON);
-      },
-      () => {
-          // console.log(this.returnedData);
-          this.buildPokemon(this.returnedData);
-
-      }
-    );
-  }
+  // apiCall(){
+  //   this.pokemonService.getData(this.apiURL).subscribe(
+  //     returnedJSON => {
+  //         this.returnedData = returnedJSON;
+  //       },
+  //     returnedJSON => {
+  //         console.log("ERROR: ",returnedJSON);
+  //     },
+  //     () => {
+  //         // console.log(this.returnedData);
+  //         this.buildPokemon(this.returnedData);
+  //
+  //     }
+  //   );
+  // }
 
   catchTestPokemon(name,types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,activeMoves,allMoves,playerActive){
     let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,activeMoves,allMoves,playerActive);
