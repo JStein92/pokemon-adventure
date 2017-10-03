@@ -38,15 +38,12 @@ export class BattleComponent implements OnInit {
   commenceBattle() {
     let turn = 1;
     do {
-
       this.myPokemon.currentHP -= 5;
       this.myPokemon2.currentHP -= 10;
       this.checkAllActivePokemonUnconscious();
       this.checkOpponentKO();
       console.log("pokemon1 HP: " + this.myPokemon.currentHP);
       console.log("pokemon2 HP: " + this.myPokemon2.currentHP);
-      // this.checkBattleOver();
-
     } while (this.battling);
   }
 
