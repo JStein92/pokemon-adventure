@@ -61,8 +61,8 @@ private user;
     );
   }
 
-  catchTestPokemon(name,types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,activeMoves,allMoves,playerActive){
-    let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,activeMoves,allMoves,playerActive);
+  catchTestPokemon(name,types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive){
+    let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
     console.log(newPokemon);
     this.pokemonService.catchPokemon(newPokemon);
   }
@@ -76,11 +76,14 @@ private user;
     let totalAccruedXP= 0;
     let currentHP = pokemonToBuild.stats[5];
     let maxHP = pokemonToBuild.stats[5];
+    let speed = pokemonToBuild.stats[0];
+    let attack = pokemonToBuild.stats[4];
+    let defense = pokemonToBuild.stats[3];
     let activeMoves = pokemonToBuild.moves[0];
     let allMoves = pokemonToBuild.moves;
     let playerActive = false;
 
-    let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,activeMoves,allMoves,playerActive);
+    let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
 
     console.log(newPokemon);
 

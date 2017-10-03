@@ -19,10 +19,10 @@ export class BattleComponent implements OnInit {
 
   constructor(public pokemonService: PokemonService) {
 
-    this.myPokemon = new Pokemon('charmander', ['fire', 'dragon'], 3, 100, 400, 600, 49, 50, ['tail lash', 'char'], ['all'], true);
-    this.myPokemon2 = new Pokemon('squirtle', ['water'], 3, 100, 400, 600, 49, 50, ['water gun', 'tail whip'], ['all'], true);
+    this.myPokemon = new Pokemon('charmander', ['fire', 'dragon'], 3, 100, 400, 600, 49, 50, 5, 5, 3, ['tail lash', 'char'], ['all'], true);
+    this.myPokemon2 = new Pokemon('squirtle', ['water'], 3, 100, 400, 600, 49, 50, 3, 4, 6, ['water gun', 'tail whip'], ['all'], true);
 
-    this.opponent = new Pokemon('bulbasaur', ['grass', 'dragon'], 3, 100, 400, 600, 49, 50, ['vine whip', 'sunbeam'], ['all'], false);
+    this.opponent = new Pokemon('bulbasaur', ['grass', 'dragon'], 3, 100, 400, 600, 49, 50, 3, 5, 5, ['vine whip', 'sunbeam'], ['all'], false);
 
     this.player = new Player("Ash", [], [this.myPokemon, this.myPokemon2]);
 
@@ -38,15 +38,12 @@ export class BattleComponent implements OnInit {
   commenceBattle() {
     let turn = 1;
     do {
-
       this.myPokemon.currentHP -= 5;
       this.myPokemon2.currentHP -= 10;
       this.checkAllActivePokemonUnconscious();
       this.checkOpponentKO();
       console.log("pokemon1 HP: " + this.myPokemon.currentHP);
       console.log("pokemon2 HP: " + this.myPokemon2.currentHP);
-      // this.checkBattleOver();
-
     } while (this.battling);
   }
 

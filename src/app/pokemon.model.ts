@@ -9,6 +9,9 @@ export class Pokemon {
     public totalAccruedXP: number,
     public currentHP: number,
     public maxHP: number,
+    public speed: number,
+    public attack: number,
+    public defense: number,
     public activeMoves: string[],
     public allMoves: string[],
     public playerActive: boolean
