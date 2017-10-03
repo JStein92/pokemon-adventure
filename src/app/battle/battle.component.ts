@@ -34,7 +34,7 @@ export class BattleComponent implements OnInit {
   commenceBattle() {
     let turn = 1;
     do {
-      this.myPokemon.currentHP--);
+      this.myPokemon.currentHP--;
       this.checkBattleOver();
     } while (this.battling);
   }
