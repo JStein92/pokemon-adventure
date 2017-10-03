@@ -1,12 +1,14 @@
+<h1 routerLink = "/map">Map</h1>
+
 <div>
-  <div *ngFor="let habitat of habitats">
+  <div *ngFor="let habitat of habitats" >
     <h1>{{habitat.name}} <input type="number" name="" value="" #difficulty> <button type="button" name="button" (click)="searchHabitat(habitat, difficulty.value)">Search</button></h1>
   </div>
 </div>
 
 <br>
 
-<div class="catchTestPokemon" *ngIf="user">
+<div class="catchTestPokemon">
   <h1>Catch test pokemon (Adds to Firebase)</h1>
 
   <label for="">name</label>

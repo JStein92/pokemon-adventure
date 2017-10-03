@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
 import { GetPokemonComponent } from './get-pokemon/get-pokemon.component';
+import { MapComponent } from './map/map.component';
+import { HabitatComponent } from './habitat/habitat.component';
 
 const appRoutes: Routes = [
   {
@@ -17,7 +19,15 @@ const appRoutes: Routes = [
   {
     path: 'getPokeman',
     component: GetPokemonComponent
-  }
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path: 'habitat/:id',
+    component: HabitatComponent
+  },
 
 ];
 
