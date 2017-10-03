@@ -1,24 +1,70 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap">
+  <div class="d-flex justify-content-center">
+
+    <div class="p-5">
+      <div class="card">
         <div class="card-block">
-          <h4 class="card-title">{{myPokemon.name}}</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h3 class="card-title">{{myPokemon.name}}</h3>
+          <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Card image cap">
+          <div class="health">{{myPokemon.currentHP}}/{{myPokemon.maxHP}}</div>
+          <div class="d-flex justify-content-around stats">
+            <div class="p-1">Speed</div>
+            <div class="p-1">Attack</div>
+            <div class="p-1">Defense</div>
+          </div>
+          <div class="d-flex justify-content-around stats">
+            <div class="p-1">{{myPokemon.speed}}</div>
+            <div class="p-1">{{myPokemon.attack}}</div>
+            <div class="p-1">{{myPokemon.defense}}</div>
+          </div>
+          <div class="d-flex justify-content-between level-type">
+            <div class="p-1">Lvl. {{myPokemon.level}}</div>
+            <div class="p-1"><span *ngFor="let type of myPokemon.types" class="pokemon-type">{{type}} </span></div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="p-2"><button>Tail Whip</button></div>
+          <div class="p-2"><button>Scratch</button></div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="p-2"><button>Eradicate</button></div>
+          <div class="p-2"><button>Flamethrower</button></div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">{{opponent.name.}}</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <div class="p-5">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">{{opponent.name}}</h3>
+        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap">
+        <div class="health">{{opponent.currentHP}}/{{opponent.maxHP}}</div>
+        <div class="d-flex justify-content-around stats">
+          <div class="p-1">Speed</div>
+          <div class="p-1">Attack</div>
+          <div class="p-1">Defense</div>
         </div>
+        <div class="d-flex justify-content-around stats">
+          <div class="p-1">{{opponent.speed}}</div>
+          <div class="p-1">{{opponent.attack}}</div>
+          <div class="p-1">{{opponent.defense}}</div>
+        </div>
+        <div class="d-flex justify-content-between level-type">
+          <div class="p-1">Lvl. {{opponent.level}}</div>
+          <div class="p-1"><span *ngFor="let type of opponent.types" class="pokemon-type">{{type}} </span></div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="p-2"><button>Vine Lash</button></div>
+        <div class="p-2"><button>Solar Beam</button></div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="p-2"><button>Bullet Seed</button></div>
+        <div class="p-2"><button>Jungle Juice</button></div>
       </div>
     </div>
   </div>
+
+
+</div>
 </div>
