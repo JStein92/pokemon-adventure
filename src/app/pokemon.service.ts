@@ -12,7 +12,7 @@ allPokemon: FirebaseListObservable<any[]>;
 
 
 constructor(private http: Http, private database: AngularFireDatabase) {
-  this.allPokemon = database.list('myPokemon');
+  this.allPokemon = database.list('allPokemon');
   this.habitats = database.list('habitats');
 }
 
@@ -40,9 +40,18 @@ constructor(private http: Http, private database: AngularFireDatabase) {
     this.allPokemon.push(pokemonToAdd);
   }
 
+  getPokemonById(pokemon){
+    return this.database.object('/allPokemon/' + pokemon.$key);
+  }
+
   getAllPokemon() {
     console.log(this.allPokemon);
     return this.allPokemon;
+  }
+
+  unequipPokemon(pokemonToUnequip){
+    let pokemonEntryInFirebase = this.getPokemonById(pokemonToUnequip);
+    pokemonEntryInFirebase.update({equipped:false});
   }
 
   getHabitatById(habitatId) {

@@ -15,14 +15,39 @@ import * as firebase from "firebase";
 
 export class MyPokemonComponent implements OnInit {
   allPokemon = null;
+  equippedPokemon = [];
+  showAllPokemonBool = false;
 
   constructor(private router: Router, private pokemonService: PokemonService) { }
 
   ngOnInit() {
-    this.pokemonService.getAllPokemon().subscribe(allPokemon => {
-      this.allPokemon = (allPokemon);
-      console.log(allPokemon);
+    this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
+      this.allPokemon = (allPokemonFromFirebase);
+
+      this.populateEquippedPokemonArray()
+
     })
   }
 
+  populateEquippedPokemonArray(){
+    this.equippedPokemon=[];
+    for (let i = 0; i < this.allPokemon.length; i++) {
+        if (this.allPokemon[i].equipped){
+          this.equippedPokemon.push(this.allPokemon[i]);
+        }
+    }
+  }
+
+  unequip(pokemonToUnequip){
+    this.pokemonService.unequipPokemon(pokemonToUnequip);
+    this.populateEquippedPokemonArray()
+  }
+
+  showAllPokemon(){
+    if (this.showAllPokemonBool === false){
+      this.showAllPokemonBool  = true;
+    } else {
+      this.showAllPokemonBool  = false;
+    }
+  }
 }

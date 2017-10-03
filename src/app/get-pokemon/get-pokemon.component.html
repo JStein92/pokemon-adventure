@@ -1,4 +1,4 @@
-<button type="button" name="button"><h1 routerLink = "/map">Map</h1></button>
+
 
 <!-- <div>
   <div *ngFor="let habitat of habitats" >
@@ -7,7 +7,9 @@
 </div> -->
 
 <br>
+<div class="container">
 
+<button type="button" name="button" class="btn btn-info"><h1 routerLink = "/map">Map</h1></button>
 <div class="catchTestPokemon">
   <h1>Catch test pokemon (Adds to Firebase)</h1>
 
@@ -55,4 +57,5 @@
 
   <button type="button" name="button" (click)="catchTestPokemon(name.value,types.value,level.value,currentLevelXP.value,totalLevelXP.value,totalAccruedXP.value,currentHP.value,maxHP.value,speed.value,attack.value,defense.value,activeMoves.value,allMoves.value,playerActive.value)">Create</button>
 
+</div>
 </div>

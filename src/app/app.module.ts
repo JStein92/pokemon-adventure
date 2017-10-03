@@ -14,7 +14,7 @@ import { routing } from './app.routing';
 import { MapComponent } from './map/map.component';
 import { MyPokemonComponent } from './my-pokemon/my-pokemon.component';
 import { HabitatComponent } from './habitat/habitat.component';
-import { ActivePokemonComponent } from './active-pokemon/active-pokemon.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -30,7 +30,7 @@ export const firebaseConfig = {
     MapComponent,
     MyPokemonComponent,
     HabitatComponent,
-    ActivePokemonComponent
+    
   ],
   imports: [
     BrowserModule,HttpModule,

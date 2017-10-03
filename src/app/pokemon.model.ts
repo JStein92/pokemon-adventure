@@ -15,6 +15,6 @@ export class Pokemon {
     public defense: number,
     public activeMoves: string[],
     public allMoves: string[],
-    public playerActive: boolean
+    public equipped: boolean
   ) {}
 }

@@ -35,65 +35,14 @@ private user;
 
   ngDoCheck() {
   this.user = firebase.auth().currentUser;
-  console.log(this.user);
 }
 
-  // searchHabitat(habitatToSearch, difficulty){
-  //   let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
-  //   //console.log(habitatToSearch.pokemon_species[randomPokemon].name)
-  //   this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;
-  //   this.difficulty = difficulty;
-  //   this.apiCall()
-  // }
 
-  // apiCall(){
-  //   this.pokemonService.getData(this.apiURL).subscribe(
-  //     returnedJSON => {
-  //         this.returnedData = returnedJSON;
-  //       },
-  //     returnedJSON => {
-  //         console.log("ERROR: ",returnedJSON);
-  //     },
-  //     () => {
-  //         // console.log(this.returnedData);
-  //         this.buildPokemon(this.returnedData);
-  //
-  //     }
-  //   );
-  // }
-
-  catchTestPokemon(name,sprites,types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive){
-    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
+  catchTestPokemon(name,sprites,types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped){
+    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped = false);
     console.log(newPokemon);
     this.pokemonService.catchPokemon(newPokemon);
   }
 
-  buildPokemon(pokemonToBuild){
-    let name = pokemonToBuild.name;
-    let sprites = [''];
-    let types = pokemonToBuild.types;
-    let level = this.difficulty;
-    let currentLevelXP = 0;
-    let totalLevelXP = level*100;
-    let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5];
-    let maxHP = pokemonToBuild.stats[5];
-    let speed = pokemonToBuild.stats[0];
-    let attack = pokemonToBuild.stats[4];
-    let defense = pokemonToBuild.stats[3];
-    let activeMoves = pokemonToBuild.moves[0];
-    let allMoves = pokemonToBuild.moves;
-    let playerActive = false;
-
-    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
-
-    console.log(newPokemon);
-
-  }
-
-  showName() {
-    let name = this.returnedData.name;
-    console.log(name);
-  }
 
 }

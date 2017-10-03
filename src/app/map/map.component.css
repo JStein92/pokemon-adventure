@@ -1,0 +1,14 @@
+.image {
+  position: relative;
+  width: 100%;
+}
+
+h2 {
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+   margin: 0 auto;
+   width: 300px;
+   height: 50px;
+}

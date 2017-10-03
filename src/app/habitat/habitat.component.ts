@@ -38,13 +38,14 @@ export class HabitatComponent implements OnInit {
 
   buildPokemon(pokemonToBuild){
     let name = pokemonToBuild.name;
+    let sprites = [pokemonToBuild.sprites.front_default, pokemonToBuild.sprites.back_default];
     let types = pokemonToBuild.types;
     let level = this.difficulty;
     let currentLevelXP = 0;
     let totalLevelXP = level*100;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5];
-    let maxHP = pokemonToBuild.stats[5];
+    let currentHP = pokemonToBuild.stats.hp;
+    let maxHP = pokemonToBuild.stats.hp;
     let speed = pokemonToBuild.stats[0];
     let attack = pokemonToBuild.stats[4];
     let defense = pokemonToBuild.stats[3];
@@ -52,8 +53,10 @@ export class HabitatComponent implements OnInit {
     let allMoves = pokemonToBuild.moves;
     let playerActive = false;
 
-    let newPokemon:Pokemon = new Pokemon(name, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
+    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
 
+
+    this.pokemonService.catchPokemon(newPokemon);
     console.log(newPokemon);
 
   }
@@ -69,7 +72,6 @@ export class HabitatComponent implements OnInit {
       () => {
           // console.log(this.returnedData);
           this.buildPokemon(this.returnedData);
-
       }
     );
   }
