@@ -15,7 +15,7 @@ export class BattleComponent implements OnInit {
   public myPokemon: Pokemon;
   public myPokemon2: Pokemon;
   public opponent: Pokemon;
-  public battling = true;
+  public turn = 0;
 
   constructor(public pokemonService: PokemonService) {
 
@@ -26,7 +26,7 @@ export class BattleComponent implements OnInit {
 
     this.player = new Player("Ash", [], [this.myPokemon, this.myPokemon2]);
 
-    this.commenceBattle();
+    this.battle();
   }
 
   ngOnInit() {
@@ -35,19 +35,84 @@ export class BattleComponent implements OnInit {
     //   console.log(returnedJSON);
     // })
   }
-  commenceBattle() {
-    let turn = 1;
+
+  battle() {
+    this.turn++;
+    console.log("TURN: " + this.turn);
+
     if (this.myPokemon.speed > this.opponent.speed) {
-      this.playerTurn();
-      this.opponentTurn();
-      if (this.checkOpponentKO()) {
-       console.log("You defeated " + this.opponent.name + '!');
+      if (this.playerTurn()) {
+        if (this.opponentTurn()) {
+          this.battle();
+        } else {
+          console.log("Your pokemon has died!");
+          // Check if all pokemon are dead, if not, swap one in, else end battle
+        }
+      } else {
+        // If the player pokemon dies before he takes his turn, exit that turn
+        if (this.opponentTurn()) {
+          if (this.playerTurn()) {
+            this.battle();
+          }
+        } else {
+          if (this.checkAllActivePokemonUnconscious()) {
+            console.log("All your pokemon are dead!");
+          } else {
+            //swap in live pokemon
+            this.battle();
+          }
+        }
       }
-    } else {
-      this.opponentTurn();
-      this.playerTurn();
     }
   }
+
+  playerTurn() {
+    let damageDealt = this.myPokemon.attack - this.opponent.defense;
+    if (damageDealt <= 0) {
+      damageDealt = 1;
+    }
+    this.opponent.currentHP -= damageDealt;
+    console.log(this.myPokemon.name + ' did ' + damageDealt + ' damage to ' + this.opponent.name + '! ' + this.opponent.name + ' has ' + this.opponent.currentHP + ' left.');
+    if(this.opponent.currentHP <= 0) {
+      this.opponent.currentHP = 0;
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  opponentTurn() {
+    let damageDealt = this.opponent.attack - this.myPokemon.defense;
+    if (damageDealt <= 0) {
+      damageDealt = 1;
+    }
+    this.myPokemon.currentHP -= damageDealt;
+    console.log(this.opponent.name + ' did ' + damageDealt + ' damage to ' + this.myPokemon.name + '! ' + this.myPokemon.name + ' has ' + this.myPokemon.currentHP + ' left.');
+    // If pokemon dies, set hp to 0 and check to see if player has more pokemon
+    if(this.myPokemon.currentHP <= 0) {
+      this.myPokemon.currentHP = 0;
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  checkAllActivePokemonUnconscious() {
+    let unconsciousCount = 0;
+    this.player.activePokemon.forEach(function(pokemon) {
+      if(pokemon.currentHP <= 0) {
+        unconsciousCount++;
+      } else {
+        return false;
+      }
+    });
+    if (unconsciousCount === this.player.activePokemon.length) {
+      return true;
+    }
+  }
+
+
+
   //   do {
   //     if (this.myPokemon.speed > this.opponent.speed) {
   //       this.playerTurn();
@@ -90,62 +155,33 @@ export class BattleComponent implements OnInit {
   //   } while (this.battling);
   // }
 
-  checkAllActivePokemonUnconscious() {
-    let unconsciousCount = 0;
-    this.player.activePokemon.forEach(function(pokemon) {
-      if(pokemon.currentHP <= 0) {
-        unconsciousCount++;
-      } else {
-        return false;
-      }
-    });
 
-    if (unconsciousCount === this.player.activePokemon.length) {
-      this.battling = false;
-      return true;
-    }
-  }
 
-  checkOpponentKO() {
-    if(this.opponent.currentHP <= 0) {
-      this.battling = false;
-      return true;
-    }
-  }
+
+
 
   flee() {
-    this.battling = false;
   }
 
-  catch() {
+  catchPokemon() {
     if (this.player.activePokemon.length < 6) {
       this.player.activePokemon.push(this.opponent);
     } else {
       this.player.inactivePokemon.push(this.opponent);
     }
-    this.battling = false;
   }
 
   switchPokemon(selectedPokemon: Pokemon) {
     this.myPokemon = selectedPokemon;
   }
 
-  playerTurn() {
-    let damageDealt = this.myPokemon.attack - this.opponent.defense;
-
-    if (damageDealt <= 0) {
-      damageDealt = 1;
-    }
-    this.opponent.currentHP = this.opponent.currentHP - damageDealt;
-    console.log(this.myPokemon.name + ' did ' + damageDealt + ' damage to ' + this.opponent.name + '!');
-  }
-
-  opponentTurn() {
-    this.myPokemon.currentHP -= 2;
-    console.log(this.opponent.name + ' did 2 damage to ' + this.myPokemon.name + '!');
-  }
-
-  checkActivePokemonUnconscious() {
-    return (this.myPokemon.currentHP <= 0);
-  }
+  // playerTurn() {
+  //   let damageDealt = this.myPokemon.attack - this.opponent.defense;
+  //
+  //   if (damageDealt <= 0) {
+  //     damageDealt = 1;
+  //   }
+  //   this.opponent.currentHP = this.opponent.currentHP - damageDealt;
+  //   console.log(this.myPokemon.name + ' did ' + damageDealt + ' damage to ' + this.opponent.name + '!');
+  // }
 }
