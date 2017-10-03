@@ -7,7 +7,10 @@ import { BattleComponent } from './battle/battle.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FormsModule } from '@angular/forms';
 
+import { routing } from './app.routing';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -23,8 +26,13 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,HttpModule,
+    HttpModule,
+    FormsModule,
+    routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
