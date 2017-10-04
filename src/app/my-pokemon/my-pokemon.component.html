@@ -2,7 +2,7 @@
 <div class="container equipped-pokemon">
   <h1><img src="https://www.serebii.net/sunmoon/trainer/11.png" alt="" class="trainerImg"><span class="equipped-header">Equipped Pokemon {{equippedPokemon.length}}/6</span></h1>
     <div class="card-deck">
-    <div class="card card-equipped" *ngFor="let pokemon of equippedPokemon" (click)="unequip(pokemon)">
+    <div class="card card-equipped" *ngFor="let pokemon of equippedPokemon">
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{pokemon.name}}</h4>
@@ -12,14 +12,17 @@
         <li class="list-group-item">Level: {{pokemon.level}}</li>
         <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
       </ul>
-      <div *ngIf="pokemon.equipped" class="isEquipped">
+      <div *ngIf="pokemon.equipped && !battling" class="isEquipped" (click)="unequip(pokemon)">
         Click to Unequip
+      </div>
+      <div *ngIf="battling">
+        <button (click)="switchPokemon(pokemon)" class="btn btn-info">Swap!</button>
       </div>
     </div>
   </div>
-  <div class="btns">
+  <div class="btns" *ngIf="!battling">
     <button *ngIf="!showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Show All Pokemon</button>
-      <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
+    <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
   </div>
 
 </div>

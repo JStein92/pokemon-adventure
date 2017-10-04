@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Pokemon } from '../pokemon.model';
 import { PokemonService } from '../pokemon.service';
@@ -14,6 +14,8 @@ import * as firebase from "firebase";
 })
 
 export class MyPokemonComponent implements OnInit {
+  @Input() battling: boolean;
+  @Output() switchPokemonSender = new EventEmitter();
   allPokemon = null;
   equippedPokemon = [];
   showAllPokemonBool = false;
@@ -24,7 +26,7 @@ export class MyPokemonComponent implements OnInit {
     this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
       this.allPokemon = (allPokemonFromFirebase);
 
-      this.populateEquippedPokemonArray()
+      this.populateEquippedPokemonArray();
 
     })
   }
@@ -64,5 +66,10 @@ export class MyPokemonComponent implements OnInit {
     } else {
       this.showAllPokemonBool  = false;
     }
+  }
+
+  switchPokemon(pokemonToSwitch: Pokemon) {
+    this.switchPokemonSender.emit(pokemonToSwitch);
+    console.log(pokemonToSwitch);
   }
 }
