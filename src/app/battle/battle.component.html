@@ -4,31 +4,31 @@
     <div class="p-5">
       <div class="card">
         <div class="card-block">
-          <h3 class="card-title">{{myPokemon?.name}}</h3>
-          <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Card image cap">
-          <div class="health">{{myPokemon?.currentHP}}/{{myPokemon?.maxHP}}</div>
+          <h3 class="card-title">{{battlingPokemon?.name}}</h3>
+          <img class="card-img-top" src="{{battlingPokemon?.sprites[1]}}" alt="Card image cap">
+          <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div>
           <div class="d-flex justify-content-around stats">
             <div class="p-1">Speed</div>
             <div class="p-1">Attack</div>
             <div class="p-1">Defense</div>
           </div>
           <div class="d-flex justify-content-around stats">
-            <div class="p-1">{{myPokemon?.speed}}</div>
-            <div class="p-1">{{myPokemon?.attack}}</div>
-            <div class="p-1">{{myPokemon?.defense}}</div>
+            <div class="p-1">{{battlingPokemon?.speed}}</div>
+            <div class="p-1">{{battlingPokemon?.attack}}</div>
+            <div class="p-1">{{battlingPokemon?.defense}}</div>
           </div>
           <div class="d-flex justify-content-between level-type">
-            <div class="p-1">Lvl. {{myPokemon?.level}}</div>
-            <div class="p-1"><span *ngFor="let type of myPokemon?.types" class="pokemon-type">{{type}} </span></div>
+            <div class="p-1">Lvl. {{battlingPokemon?.level}}</div>
+            <div class="p-1"><span *ngFor="let type of battlingPokemon?.types" class="pokemon-type">{{type.type.name}} </span></div>
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <div class="p-2"><button (click)="move(0)">Tail Whip</button></div>
-          <div class="p-2"><button (click)="move(1)">Scratch</button></div>
+          <div class="p-2"><button (click)="battle(0)">{{battlingPokemon.activeMoves[0].name}}</button></div>
+          <div *ngIf="battlingPokemon.activeMoves.length > 1" class="p-2"><button (click)="battle(1)">{{battlingPokemon.activeMoves[1].name}}</button></div>
         </div>
         <div class="d-flex justify-content-center">
-          <div class="p-2"><button (click)="move(2)">Eradicate</button></div>
-          <div class="p-2"><button (click)="move(3)">Flamethrower</button></div>
+          <div *ngIf="battlingPokemon.activeMoves.length > 2" class="p-2"><button (click)="battle(2)">{{battlingPokemon.activeMoves[2].name}}</button></div>
+          <div *ngIf="battlingPokemon.activeMoves.length > 3" class="p-2"><button (click)="battle(3)">{{battlingPokemon.activeMoves[3].name}}</button></div>
         </div>
       </div>
     </div>
@@ -55,12 +55,12 @@
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <div class="p-2"><button>{{opponent.activeMoves[0]}}</button></div>
-        <div class="p-2"><button>{{opponent.activeMoves[1]}}</button></div>
+        <div class="p-2"><button>{{opponent.activeMoves[0].name}}</button></div>
+        <div class="p-2"><button>{{opponent.activeMoves[1].name}}</button></div>
       </div>
       <div class="d-flex justify-content-center">
-        <div class="p-2"><button>{{opponent.activeMoves[2]}}</button></div>
-        <div class="p-2"><button>{{opponent.activeMoves[3]}}</button></div>
+        <div *ngIf="opponent.activeMoves.length > 2" class="p-2"><button>{{opponent.activeMoves[2].name}}</button></div>
+        <div *ngIf="opponent.activeMoves.length > 3" class="p-2"><button>{{opponent.activeMoves[3].name}}</button></div>
       </div>
     </div>
   </div>
@@ -69,4 +69,4 @@
 </div>
 </div>
 
-<!-- <app-my-pokemon></app-my-pokemon> -->
+<app-my-pokemon></app-my-pokemon>
