@@ -4,31 +4,31 @@
     <div class="p-5">
       <div class="card">
         <div class="card-block">
-          <h3 class="card-title">{{myPokemon.name}}</h3>
+          <h3 class="card-title">{{myPokemon?.name | async}}</h3>
           <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Card image cap">
-          <div class="health">{{myPokemon.currentHP}}/{{myPokemon.maxHP}}</div>
+          <div class="health">{{myPokemon?.currentHP}}/{{myPokemon?.maxHP}}</div>
           <div class="d-flex justify-content-around stats">
             <div class="p-1">Speed</div>
             <div class="p-1">Attack</div>
             <div class="p-1">Defense</div>
           </div>
           <div class="d-flex justify-content-around stats">
-            <div class="p-1">{{myPokemon.speed}}</div>
-            <div class="p-1">{{myPokemon.attack}}</div>
-            <div class="p-1">{{myPokemon.defense}}</div>
+            <div class="p-1">{{myPokemon?.speed}}</div>
+            <div class="p-1">{{myPokemon?.attack}}</div>
+            <div class="p-1">{{myPokemon?.defense}}</div>
           </div>
           <div class="d-flex justify-content-between level-type">
-            <div class="p-1">Lvl. {{myPokemon.level}}</div>
-            <div class="p-1"><span *ngFor="let type of myPokemon.types" class="pokemon-type">{{type}} </span></div>
+            <div class="p-1">Lvl. {{myPokemon?.level}}</div>
+            <div class="p-1"><span *ngFor="let type of myPokemon?.types" class="pokemon-type">{{type}} </span></div>
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <div class="p-2"><button>Tail Whip</button></div>
-          <div class="p-2"><button>Scratch</button></div>
+          <div class="p-2"><button (click)="move(0)">Tail Whip</button></div>
+          <div class="p-2"><button (click)="move(1)">Scratch</button></div>
         </div>
         <div class="d-flex justify-content-center">
-          <div class="p-2"><button>Eradicate</button></div>
-          <div class="p-2"><button>Flamethrower</button></div>
+          <div class="p-2"><button (click)="move(2)">Eradicate</button></div>
+          <div class="p-2"><button (click)="move(3)">Flamethrower</button></div>
         </div>
       </div>
     </div>
@@ -36,22 +36,22 @@
   <div class="p-5">
     <div class="card">
       <div class="card-block">
-        <h3 class="card-title">{{opponent.name}}</h3>
-        <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap">
-        <div class="health">{{opponent.currentHP}}/{{opponent.maxHP}}</div>
+        <h3 class="card-title">{{opponent?.name}}</h3>
+        <img class="card-img-top" src="{{opponent.sprites[0]}}" alt="Card image cap">
+        <div class="health">{{opponent?.currentHP}}/{{opponent?.maxHP}}</div>
         <div class="d-flex justify-content-around stats">
           <div class="p-1">Speed</div>
           <div class="p-1">Attack</div>
           <div class="p-1">Defense</div>
         </div>
         <div class="d-flex justify-content-around stats">
-          <div class="p-1">{{opponent.speed}}</div>
-          <div class="p-1">{{opponent.attack}}</div>
-          <div class="p-1">{{opponent.defense}}</div>
+          <div class="p-1">{{opponent?.speed}}</div>
+          <div class="p-1">{{opponent?.attack}}</div>
+          <div class="p-1">{{opponent?.defense}}</div>
         </div>
         <div class="d-flex justify-content-between level-type">
-          <div class="p-1">Lvl. {{opponent.level}}</div>
-          <div class="p-1"><span *ngFor="let type of opponent.types" class="pokemon-type">{{type}} </span></div>
+          <div class="p-1">Lvl. {{opponent?.level}}</div>
+          <div class="p-1"><span *ngFor="let type of opponent?.types" class="pokemon-type">{{type.type.name}} </span></div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
