@@ -10,10 +10,25 @@ export class PokemonService {
 habitats: FirebaseListObservable<any[]>;
 allPokemon: FirebaseListObservable<any[]>;
 
+audio = new Audio();
+
 
 constructor(private http: Http, private database: AngularFireDatabase) {
   this.allPokemon = database.list('allPokemon');
   this.habitats = database.list('habitats');
+}
+
+playSong(song){
+  this.audio.pause();
+  this.audio.currentTime=0;
+  this.audio.loop=true;
+  this.audio.src = song;
+  this.audio.load();
+  this.audio.play();
+}
+stopSong(){
+  this.audio.pause();
+  this.audio.currentTime=0;
 }
 
   getData(apiURL) {
