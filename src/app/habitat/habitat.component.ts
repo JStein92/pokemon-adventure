@@ -16,6 +16,7 @@ export class HabitatComponent implements OnInit {
   habitatId: string;
   habitatToDisplay;
   returnedData;
+  newPokemon;
   apiURL:string = "http://pokeapi.co/api/v2/";
 
   difficulty;
@@ -44,20 +45,21 @@ export class HabitatComponent implements OnInit {
     let currentLevelXP = 0;
     let totalLevelXP = level*100;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats.hp;
-    let maxHP = pokemonToBuild.stats.hp;
-    let speed = pokemonToBuild.stats[0];
-    let attack = pokemonToBuild.stats[4];
-    let defense = pokemonToBuild.stats[3];
+    let currentHP = pokemonToBuild.stats[5].base_stat;
+    let maxHP = pokemonToBuild.stats[5].base_stat;
+    let speed = pokemonToBuild.stats[0].base_stat;
+    let attack = pokemonToBuild.stats[4].base_stat;
+    let defense = pokemonToBuild.stats[3].base_stat;
     let activeMoves = pokemonToBuild.moves[0];
     let allMoves = pokemonToBuild.moves;
     let playerActive = false;
 
-    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
+    this.newPokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
 
 
-    this.pokemonService.catchPokemon(newPokemon);
-    console.log(newPokemon);
+    this.pokemonService.catchPokemon(this.newPokemon);
+    console.log(this.newPokemon);
+    console.log(this.newPokemon.types);
 
   }
 
