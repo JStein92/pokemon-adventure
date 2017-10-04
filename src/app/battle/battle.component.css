@@ -1,0 +1,47 @@
+.card-block {
+  text-align: center;
+}
+
+.card-title {
+  text-align: center;
+  margin: 10px;
+}
+
+.card-img-top {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+.health {
+  background-color: green;
+}
+
+.stats {
+  background-color: yellow;
+}
+
+.pokemon-level {
+  text-align: left;
+}
+
+.level-type {
+  background-color: cyan;
+}
+
+.card {
+  width: 300px;
+}
+
+button {
+  width: 130px;
+  height: 50px;
+  font-size: .95em;
+  background-color: white;
+}
+
+button:hover {
+  background-color: #caccce;
+  cursor: pointer;
+}
