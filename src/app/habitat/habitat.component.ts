@@ -16,7 +16,7 @@ export class HabitatComponent implements OnInit {
   habitatId: string;
   habitatToDisplay;
   returnedData;
-  newPokemon;
+  newPokemon = null;
   apiURL:string = "http://pokeapi.co/api/v2/";
   equippedPokemon = [];
   allPokemon=[];
@@ -50,6 +50,22 @@ export class HabitatComponent implements OnInit {
   }
 
   buildPokemon(pokemonToBuild){
+
+    let activeMoves = [];
+    let movesNumber = 2;
+
+    if (this.difficulty === "easy") {
+      movesNumber = 2;
+    } else if (this.difficulty==="medium") {
+      movesNumber = 3;
+    } else if (this.difficulty==="hard") {
+      movesNumber = 4;
+    }
+
+    for(let i = 0; i < movesNumber; i++) {
+      activeMoves[i] = pokemonToBuild.moves[Math.floor(Math.random()*(pokemonToBuild.moves.length))].move;
+    }
+
     let name = pokemonToBuild.name;
     let sprites = [pokemonToBuild.sprites.front_default, pokemonToBuild.sprites.back_default];
     let types = pokemonToBuild.types;
@@ -62,18 +78,15 @@ export class HabitatComponent implements OnInit {
     let speed = pokemonToBuild.stats[0].base_stat;
     let attack = pokemonToBuild.stats[4].base_stat;
     let defense = pokemonToBuild.stats[3].base_stat;
-    let activeMoves = pokemonToBuild.moves[0];
     let allMoves = pokemonToBuild.moves;
     let equipped=false;
     if (this.equippedPokemon.length<6){
        equipped = true;
     }
 
-    console.log(maxHP);
+    this.newPokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
 
-    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
-
-    this.pokemonService.catchPokemon(newPokemon);
+    this.pokemonService.catchPokemon(this.newPokemon);
 
   }
 

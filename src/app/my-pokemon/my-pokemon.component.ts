@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Pokemon } from '../pokemon.model';
 import { PokemonService } from '../pokemon.service';

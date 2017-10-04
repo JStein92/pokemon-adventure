@@ -65,4 +65,20 @@ constructor(private http: Http, private database: AngularFireDatabase) {
     return returnedHabitat;
   }
 
+  getEquippedPokemon() {
+
+    let equippedPokemon = [];
+
+    this.getAllPokemon().subscribe(allPokemonFromFirebase => {
+      let allPokemon = (allPokemonFromFirebase);
+      for (let i = 0; i < allPokemon.length; i++) {
+          if (allPokemon[i].equipped){
+            equippedPokemon.push(allPokemon[i]);
+          }
+      }
+    })
+    return equippedPokemon;
+
+  }
+
 }
