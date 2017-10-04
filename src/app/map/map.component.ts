@@ -25,6 +25,10 @@ export class MapComponent implements OnInit {
     this.pokemonService.playSong("../assets/music/map.mp3");
   }
 
+  stopSong(){
+    this.pokemonService.stopSong();
+  }
+
   goToHabitat(clickedHabitat) {
     this.pokemonService.stopSong();
     this.router.navigate(['habitat', clickedHabitat.id])
