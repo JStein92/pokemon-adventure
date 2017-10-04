@@ -69,6 +69,8 @@ export class HabitatComponent implements OnInit {
        equipped = true;
     }
 
+    console.log(maxHP);
+
     let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
 
     this.pokemonService.catchPokemon(newPokemon);

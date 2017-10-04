@@ -12,7 +12,6 @@ body {
   float: left;
   z-index: 1;
   width: 100%;
-  padding-left: 0px;
 }
 
 h1 {
@@ -35,10 +34,9 @@ h1:hover {
   src: url("../../assets/fonts/BerkshireSwash-Regular.ttf");
 }
 
-.app-my-pokemon {
-  background-color: pink;
-}
-
 .map-face {
   position: static;
+}
+.app-my-pokemon{
+  margin-top: 50px;
 }

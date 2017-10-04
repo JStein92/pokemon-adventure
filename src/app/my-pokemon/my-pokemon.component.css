@@ -1,10 +1,8 @@
 .equipped-pokemon{
-  min-height: 100px;
-  background-color: grey;
-  padding: 15px;
-  margin: 20px;
+
+  background-color: #d1d1d1;
+
   z-index: -1;
-  padding-top: 1%;
 }
 .card{
   display: inline-block;
@@ -12,13 +10,39 @@
   margin: 5px;
   height: 100%;
   top: 0;
+  background-color:#ededed;
+  height: 310px;
+}
+.card:hover{
+cursor: pointer;
 }
 .card-img-top{
-  width: 100%;
-}
 
-h1 {
-  font-size: 6vh;
-  font-size: 6vw;
-  padding-top: 5%;
+  height: 130px;
+}
+.trainerImg{
+  background-color: silver;
+  border-radius: 30%;
+  margin: 20px;
+  width: 200px;
+}
+.card-equipped{
+  max-width: 180px;
+}
+.isEquipped{
+  background-color: #fffde2;
+}
+.notEquipped{
+  background-color: #e2ffe2;
+}
+.equipped-header{
+  font-size: 1.5em;
+}
+.show-all-btn{
+  font-size: 2em;
+  text-align: center;
+  display: block;
+}
+.btns{
+  padding: 5px;
 }
