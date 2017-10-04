@@ -1,8 +1,8 @@
 <div class="row buffer"></div>
 <div class="container equipped-pokemon">
-  <h1>Equipped Pokemon</h1>
+  <h1><img src="https://www.serebii.net/sunmoon/trainer/11.png" alt="" class="trainerImg"><span class="equipped-header">Equipped Pokemon {{equippedPokemon.length}}/6</span></h1>
     <div class="card-deck">
-    <div class="card" *ngFor="let pokemon of equippedPokemon" (click)="unequip(pokemon)">
+    <div class="card card-equipped" *ngFor="let pokemon of equippedPokemon" (click)="unequip(pokemon)">
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{pokemon.name}}</h4>
@@ -10,15 +10,19 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Level: {{pokemon.level}}</li>
-        <li class="list-group-item">HP: {{pokemon.currentHP.base_stat}}/{{pokemon.maxHP.base_stat}}</li>
+        <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
       </ul>
+      <div *ngIf="pokemon.equipped" class="isEquipped">
+        Click to Unequip
+      </div>
     </div>
   </div>
+  <div class="btns">
+    <button *ngIf="!showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Show All Pokemon</button>
+      <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
+  </div>
+
 </div>
-
-<button *ngIf="!showAllPokemonBool" type="button" name="button" (click)="showAllPokemon()">Show All Pokemon</button>
-
-<button *ngIf="showAllPokemonBool" type="button" name="button" (click)="showAllPokemon()">Hide All Pokemon</button>
 
 <div class="container all-pokemon" *ngIf="showAllPokemonBool">
   <h1>All Pokemon</h1>
@@ -32,5 +36,11 @@
         <li class="list-group-item">Level: {{pokemon.level}}</li>
         <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
       </ul>
+      <div *ngIf="pokemon.equipped" class="isEquipped">
+        Already Equipped
+      </div>
+      <div *ngIf="!pokemon.equipped" class="notEquipped">
+        Click to Equip
+      </div>
   </div>
 </div>

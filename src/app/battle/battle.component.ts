@@ -14,24 +14,75 @@ export class BattleComponent implements OnInit {
   @Input() opponent: Pokemon;
 
   public player: Player;
+  public equippedPokemon = [];
+  public battlingPokemon: Pokemon;
   public turn = 0;
   public playerAction = null;
 
   constructor(public pokemonService: PokemonService) {
+    this.equippedPokemon = this.pokemonService.getEquippedPokemon();
+    this.battlingPokemon = this.equippedPokemon[0];
 
-
-
-    // this.myPokemon = new Pokemon('charmander', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'], ['fire', 'dragon'], 3, 100, 400, 600, 49, 50, 5, 5, 3, ['tail lash', 'char'], ['all'], true);
-    // this.myPokemon2 = new Pokemon('squirtle', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png'], ['water'], 3, 100, 400, 600, 49, 50, 3, 4, 6, ['water gun', 'tail whip'], ['all'], true);
-    //
-    // this.opponent = new Pokemon('bulbasaur', ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'], ['grass', 'dragon'], 3, 100, 400, 600, 49, 50, 3, 5, 5, ['vine whip', 'sunbeam'], ['all'], false);
-    //
-    // this.player = new Player("Ash", [], [this.myPokemon, this.myPokemon2]);
-
-    // this.battle();
   }
 
   ngOnInit() {
+  }
+
+  battle(selection: number) {
+    this.turn++;
+
+    if (this.opponent.currentHP <= 0) {
+      this.battleOver();
+    }
+
+    if(this.isPlayerFirstToGo()) {
+      this.playerAttack(selection);
+      this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
+    } else {
+      this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
+      this.playerAttack(selection);
+    }
+  }
+
+
+  isPlayerFirstToGo() {
+    if (this.battlingPokemon.speed >= this.opponent.speed) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  playerAttack(selection: number) {
+    let damageDealt = this.battlingPokemon.attack - this.opponent.defense;
+    if (damageDealt <= 0) {
+      damageDealt = 1;
+    }
+
+    this.opponent.currentHP -= damageDealt;
+    if (this.opponent.currentHP <= 0) {
+      this.opponent.currentHP = 0;
+    }
+
+    console.log(this.battlingPokemon.name + ' used ' + this.battlingPokemon.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.opponent.name + '! ' + this.opponent.name + ' has ' + this.opponent.currentHP + ' hp left.');
+  }
+
+  opponentAttack(selection) {
+    let damageDealt = this.opponent.attack - this.battlingPokemon.defense;
+    if (damageDealt <= 0) {
+      damageDealt = 1;
+    }
+
+    this.battlingPokemon.currentHP -= damageDealt;
+    if (this.battlingPokemon.currentHP <= 0) {
+      this.battlingPokemon.currentHP = 0;
+    }
+
+    console.log(this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '! ' + this.battlingPokemon.name + ' has ' + this.battlingPokemon.currentHP + ' hp left.');
+  }
+
+  battleOver() {
+
   }
 
 
