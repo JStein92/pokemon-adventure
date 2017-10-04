@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   providers: [AuthenticationService]
 })
 export class AppComponent {
-  title = 'POKEMAN';
+  title = 'POKEMON';
   user;
   private isLoggedIn: Boolean;
   private userName: String;
@@ -20,7 +20,7 @@ export class AppComponent {
      this.authService.user.subscribe(user => {
        if (user == null) {
          this.isLoggedIn = false;
-         this.router.navigate(['getPokeman']);
+         //this.router.navigate(['getPokemon']);
        } else {
          this.isLoggedIn = true;
          this.userName = user.displayName;

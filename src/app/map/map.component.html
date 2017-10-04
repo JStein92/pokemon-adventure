@@ -1,11 +1,21 @@
+<div class="habitat" *ngIf="habitats">
+  <h1 id="habitat4" (click)="goToHabitat(habitats[4])">{{habitats[4].name}}</h1>
+  <h1 id="habitat8" (click)="goToHabitat(habitats[8])">{{habitats[8].name}}</h1>
+  <h1 id="habitat5" (click)="goToHabitat(habitats[5])">{{habitats[5].name}}</h1>
+  <h1 id="habitat2" (click)="goToHabitat(habitats[2])">{{habitats[2].name}}</h1>
+  <h1 id="habitat3" (click)="goToHabitat(habitats[7])">{{habitats[7].name}}</h1>
+  <h1 id="habitat7" (click)="goToHabitat(habitats[6])">{{habitats[6].name}}</h1>
+  <h1 id="habitat6" (click)="goToHabitat(habitats[3])">{{habitats[3].name}}</h1>
+  <h1 id="habitat0" (click)="goToHabitat(habitats[0])">{{habitats[0].name}}</h1>
+  <h1 id="habitat1" (click)="goToHabitat(habitats[1])">{{habitats[1].name}}</h1>
+</div>
+
 <img class="image" src="../assets/images/map.jpg" alt="">
 
-<h1 (click)="goToHabitat(habitats[0])">{{habitats[0].name}}</h1>
-
-<div>
+<!-- <div>
   <div *ngFor="let habitat of habitats" >
     <h1 (click)="goToHabitat(habitat)">{{habitat.name}}</h1>
   </div>
-</div>
+</div> -->
 
 <app-my-pokemon></app-my-pokemon>
