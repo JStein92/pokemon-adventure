@@ -59,7 +59,6 @@ export class HabitatComponent implements OnInit {
 
     this.pokemonService.catchPokemon(this.newPokemon);
     console.log(this.newPokemon);
-    console.log(this.newPokemon.types);
 
   }
 
@@ -87,7 +86,7 @@ export class HabitatComponent implements OnInit {
         console.log(this.difficulty)
     } else if (difficulty==="")
     {
-      
+
     }
 
     this.apiCall()
