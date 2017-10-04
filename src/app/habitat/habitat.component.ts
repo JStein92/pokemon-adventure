@@ -39,6 +39,8 @@ export class HabitatComponent implements OnInit {
       this.populateEquippedPokemonArray()
     })
 
+    this.pokemonService.playSong("../assets/music/habitat.mp3");
+
   }
   populateEquippedPokemonArray(){
     this.equippedPokemon=[];
@@ -47,6 +49,10 @@ export class HabitatComponent implements OnInit {
           this.equippedPokemon.push(this.allPokemon[i]);
         }
     }
+  }
+
+  stopSong(){
+    this.pokemonService.stopSong();
   }
 
   buildPokemon(pokemonToBuild){

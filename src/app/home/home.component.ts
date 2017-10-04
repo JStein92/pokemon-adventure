@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 amountOfPokemon;
   ngOnInit() {
 
+    this.pokemonService.playSong("../assets/music/pallete-town.mp3");
+
     this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
       this.amountOfPokemon = (allPokemonFromFirebase.length);
     })
@@ -24,6 +26,9 @@ amountOfPokemon;
 
     }
 
+  }
+  stopSong(){
+    this.pokemonService.stopSong();
   }
   returnedData;
   buildPokemon(pokemonToBuild){

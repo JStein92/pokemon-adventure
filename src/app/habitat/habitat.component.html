@@ -28,7 +28,7 @@
     <img src="http://hexa.party/wp-content/uploads/2016/03/8-bit-Mountains.jpg" alt="" class="backgroundImage">
   </div>
 
-  <h1 class="habitatName">{{habitatToDisplay.name.toUpperCase()}}   <button type="button" routerLink="/map" name="button">Back to map</button></h1>
+  <h1 class="habitatName">{{habitatToDisplay.name.toUpperCase()}}   <button type="button" (click)="stopSong()" routerLink="/map" name="button">Back to map</button></h1>
 
 
   <button type="button" name="button" class="searchEasy btn btn-success" (click)="searchHabitat(habitatToDisplay, 'easy')">Search - Easy</button>

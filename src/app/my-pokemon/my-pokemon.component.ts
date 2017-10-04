@@ -40,6 +40,10 @@ export class MyPokemonComponent implements OnInit {
     }
   }
 
+  stopSong(){
+    this.pokemonService.stopSong();
+  }
+
   unequip(pokemonToUnequip){
     this.pokemonService.unequipPokemon(pokemonToUnequip);
     this.populateEquippedPokemonArray()

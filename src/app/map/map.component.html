@@ -1,5 +1,13 @@
 <div class="map-face">
-  <img class="image" src="../assets/images/map.jpg" alt="">
+  <div class="absoluteContainer">
+    <img src="../assets/images/map.jpg" alt="">
+
+    <div class="app-my-pokemon">
+        <button type="button" name="button" (click)="stopSong()" routerLink="/home">Go Home</button>
+      <app-my-pokemon></app-my-pokemon>
+
+    </div>
+  </div>
 
   <div class="habitat" *ngIf="habitats">
     <div class="row">
@@ -45,9 +53,6 @@
     <div class="row">
       <div class="col-md-1"></div>
       <h1 (click)="goToHabitat(habitats[6])">{{habitats[6].name}}</h1>
-    </div>
-    <div class="app-my-pokemon">
-      <app-my-pokemon></app-my-pokemon>
     </div>
   </div>
 
