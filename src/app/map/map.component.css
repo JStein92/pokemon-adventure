@@ -2,7 +2,11 @@ body {
   font-size: 100%;
 }
 
-.image {
+img {
+  width: 100%;
+}
+
+.absoluteContainer {
   position: absolute;
   width: 100%;
 }
@@ -12,14 +16,18 @@ body {
   float: left;
   z-index: 1;
   width: 100%;
+  padding-left: 0px;
+  max-height: 1000px;
+
 }
 
 h1 {
-  font-size: 6vh;
-  font-size: 6vw;
+  font-size: 5vh;
+  font-size: 5.5vw;
   font-family: "Berkshire-Swash";
   color: #f2ded5;
   text-shadow: 3px 5px 3px black;
+  padding-left: 20px;
 }
 
 h1:hover {
@@ -34,8 +42,13 @@ h1:hover {
   src: url("../../assets/fonts/BerkshireSwash-Regular.ttf");
 }
 
+.app-my-pokemon {
+  /*position: absolute;
+  padding-top: 50px;*/
+}
+
 .map-face {
-  position: static;
+  max-width: 700em;
 }
 .app-my-pokemon{
   margin-top: 50px;
