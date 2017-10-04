@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     component: BattleComponent
   },
   {
-    path: 'getPokeman',
+    path: 'getPokemon',
     component: GetPokemonComponent
   },
   {
