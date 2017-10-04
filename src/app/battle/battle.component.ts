@@ -18,6 +18,7 @@ export class BattleComponent implements OnInit {
   public battlingPokemon: Pokemon;
   public turn = 0;
   public playerAction = null;
+  public battleEnded = false;
 
   constructor(public pokemonService: PokemonService) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
@@ -31,19 +32,28 @@ export class BattleComponent implements OnInit {
   battle(selection: number) {
     this.turn++;
 
-    if (this.opponent.currentHP <= 0) {
-      this.battleOver();
-    }
-
     if(this.isPlayerFirstToGo()) {
       this.playerAttack(selection);
-      this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
+      if(this.opponent.currentHP > 0) {
+        this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
+      } else {
+        this.battleOver(true);
+      }
+
+
     } else {
       this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
-      this.playerAttack(selection);
+      if(this.battlingPokemon.currentHP > 0) {
+        this.playerAttack(selection);
+      } else {
+        if (this.checkAllEquippedPokemonUnconscious()) {
+          this.battleOver(false);
+        } else {
+          alert('pick a new pokemon to battle!');
+        }
+      }
     }
   }
-
 
   isPlayerFirstToGo() {
     if (this.battlingPokemon.speed >= this.opponent.speed) {
@@ -81,8 +91,27 @@ export class BattleComponent implements OnInit {
     console.log(this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '! ' + this.battlingPokemon.name + ' has ' + this.battlingPokemon.currentHP + ' hp left.');
   }
 
-  battleOver() {
+  battleOver(victor: boolean) {
+    this.battleEnded = true;
+    if(victor) {
+      alert("you win");
+    } else {
+      alert("all your pokemon have fainted!");
+    }
+  }
 
+  checkAllEquippedPokemonUnconscious() {
+    let unconsciousCount = 0;
+    this.equippedPokemon.forEach(function(pokemon) {
+      if(pokemon.currentHP <= 0) {
+        unconsciousCount++;
+      } else {
+        return false;
+      }
+    });
+    if (unconsciousCount === this.equippedPokemon.length) {
+      return true;
+    }
   }
 
 
@@ -106,7 +135,7 @@ export class BattleComponent implements OnInit {
   //           this.battle();
   //         }
   //       } else {
-  //         if (this.checkAllActivePokemonUnconscious()) {
+  //         if (this.checkAllEquippedPokemonUnconscious()) {
   //           console.log("All your pokemon are dead!");
   //         } else {
   //           //swap in live pokemon
@@ -157,19 +186,7 @@ export class BattleComponent implements OnInit {
   //   }
   // }
   //
-  // checkAllActivePokemonUnconscious() {
-  //   let unconsciousCount = 0;
-  //   this.player.activePokemon.forEach(function(pokemon) {
-  //     if(pokemon.currentHP <= 0) {
-  //       unconsciousCount++;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  //   if (unconsciousCount === this.player.activePokemon.length) {
-  //     return true;
-  //   }
-  // }
+
   //
   // move(selection: number) {
   //   this.playerAction = selection;

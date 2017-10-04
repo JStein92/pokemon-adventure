@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="!battleEnded" class="container">
   <div class="d-flex justify-content-center">
 
     <div class="p-5">
@@ -67,6 +67,10 @@
 
 
 </div>
+</div>
+
+<div *ngIf="battleEnded">
+  <h1>THE BATTLE HAS ENDED</h1>
 </div>
 
 <app-my-pokemon></app-my-pokemon>

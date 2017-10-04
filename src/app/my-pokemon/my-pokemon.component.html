@@ -17,9 +17,9 @@
       </div>
     </div>
   </div>
-  <div class="btns">
+  <div class="btns" *ngIf="!battle">
     <button *ngIf="!showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Show All Pokemon</button>
-      <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
+    <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
   </div>
 
 </div>
