@@ -1,7 +1,7 @@
 <div class="container equipped-pokemon">
   <h1>Equipped Pokemon</h1>
     <div class="card-deck">
-    <div class="card" *ngFor="let pokemon of equippedPokemon" style="width: 20rem;">
+    <div class="card" *ngFor="let pokemon of equippedPokemon">
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{pokemon.name}}</h4>
@@ -24,8 +24,7 @@
 
 <div class="container all-pokemon" *ngIf="showAllPokemonBool">
   <h1>Equipped Pokemon</h1>
-    <div class="card-deck">
-    <div class="card" *ngFor="let pokemon of allPokemon" style="width: 20rem;">
+    <div class="card all-pokemon-card" *ngFor="let pokemon of allPokemon">
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{pokemon.name}}</h4>
@@ -36,8 +35,7 @@
         <li class="list-group-item">HP: {{pokemon.currentHP.base_stat}}/{{pokemon.maxHP.base_stat}}</li>
       </ul>
       <div class="card-block">
-        <a class="card-link" *ngIf="!pokemon.equipped" >Equip</a>
+        <a class="card-link" *ngIf="!pokemon.equipped" (click)=equip(pokemon)>Equip</a>
       </div>
-    </div>
   </div>
 </div>

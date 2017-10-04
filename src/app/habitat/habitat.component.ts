@@ -17,7 +17,8 @@ export class HabitatComponent implements OnInit {
   habitatToDisplay;
   returnedData;
   apiURL:string = "http://pokeapi.co/api/v2/";
-
+  equippedPokemon = [];
+  allPokemon=[];
   difficulty;
   constructor(
     private route: ActivatedRoute,
@@ -30,10 +31,21 @@ export class HabitatComponent implements OnInit {
     });
     this.pokemonService.getHabitatById(this.habitatId).subscribe(dataLastEmittedFromObserver => {
       this.habitatToDisplay = dataLastEmittedFromObserver;
-
-      console.log(this.habitatToDisplay);
     })
-    // this.habitatToDisplay = this.pokemonService.getHabitatById(this.habitatId);
+
+    this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
+      this.allPokemon = (allPokemonFromFirebase);
+      this.populateEquippedPokemonArray()
+    })
+
+  }
+  populateEquippedPokemonArray(){
+    this.equippedPokemon=[];
+    for (let i = 0; i < this.allPokemon.length; i++) {
+        if (this.allPokemon[i].equipped){
+          this.equippedPokemon.push(this.allPokemon[i]);
+        }
+    }
   }
 
   buildPokemon(pokemonToBuild){
@@ -44,20 +56,21 @@ export class HabitatComponent implements OnInit {
     let currentLevelXP = 0;
     let totalLevelXP = level*100;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats.hp;
-    let maxHP = pokemonToBuild.stats.hp;
+    let currentHP = pokemonToBuild.stats[5];
+    let maxHP = pokemonToBuild.stats[5];
     let speed = pokemonToBuild.stats[0];
     let attack = pokemonToBuild.stats[4];
     let defense = pokemonToBuild.stats[3];
     let activeMoves = pokemonToBuild.moves[0];
     let allMoves = pokemonToBuild.moves;
-    let playerActive = false;
+    let equipped=false;
+    if (this.equippedPokemon.length<6){
+       equipped = true;
+    }
 
-    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
-
+    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
 
     this.pokemonService.catchPokemon(newPokemon);
-    console.log(newPokemon);
 
   }
 
@@ -71,7 +84,7 @@ export class HabitatComponent implements OnInit {
       },
       () => {
           // console.log(this.returnedData);
-          this.buildPokemon(this.returnedData);
+        this.buildPokemon(this.returnedData);
       }
     );
   }
@@ -83,9 +96,14 @@ export class HabitatComponent implements OnInit {
     if (difficulty === "easy"){
         this.difficulty = Math.floor(Math.random()*(10-1)+1);
         console.log(this.difficulty)
-    } else if (difficulty==="")
+    } else if (difficulty==="medium")
     {
-      
+      this.difficulty = Math.floor(Math.random()*(30-10)+10);
+      console.log(this.difficulty)
+    } else if (difficulty==="hard")
+    {
+      this.difficulty = Math.floor(Math.random()*(70-30)+30);
+      console.log(this.difficulty)
     }
 
     this.apiCall()
