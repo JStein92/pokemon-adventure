@@ -1,4 +1,12 @@
 .backgroundImage{
-  width: 100%;
   position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+}
+.habitatName{
+  font-size: 6em;
+  color: white;
+  padding: 50px;
 }
