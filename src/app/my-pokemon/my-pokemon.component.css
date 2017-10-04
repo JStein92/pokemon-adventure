@@ -3,12 +3,15 @@
   background-color: #d1d1d1;
 
   z-index: -1;
+  padding-top: 1%;
+  border-radius: 20px;
 }
 .card{
   display: inline-block;
   padding: 15px;
   margin: 5px;
   height: 100%;
+  width: 150%;
   top: 0;
   background-color:#ededed;
   height: 310px;
@@ -17,7 +20,6 @@
 cursor: pointer;
 }
 .card-img-top{
-
   height: 130px;
 }
 .trainerImg{
@@ -45,4 +47,15 @@ cursor: pointer;
 }
 .btns{
   padding: 5px;
+}
+
+h1 {
+  font-size: 6vh;
+  font-size: 6vw;
+  text-align: center;
+  padding: 50px;
+}
+
+.buffer {
+  background-color: purple;
 }
