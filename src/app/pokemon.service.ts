@@ -45,13 +45,17 @@ constructor(private http: Http, private database: AngularFireDatabase) {
   }
 
   getAllPokemon() {
-    console.log(this.allPokemon);
+    //console.log(this.allPokemon);
     return this.allPokemon;
   }
 
   unequipPokemon(pokemonToUnequip){
     let pokemonEntryInFirebase = this.getPokemonById(pokemonToUnequip);
     pokemonEntryInFirebase.update({equipped:false});
+  }
+  equipPokemon(pokemonToEquip){
+    let pokemonEntryInFirebase = this.getPokemonById(pokemonToEquip);
+    pokemonEntryInFirebase.update({equipped:true});
   }
 
   getHabitatById(habitatId) {

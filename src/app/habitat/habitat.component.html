@@ -1,15 +1,41 @@
 <div *ngIf="habitatToDisplay">
 
+<<<<<<< HEAD
+  <div *ngIf="habitatToDisplay.name==='cave'">
+    <img src="https://i.redd.it/6axfm8uck3oy.png" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='forest'">
+    <img src="https://i.ytimg.com/vi/VkLKY4rx8B0/maxresdefault.jpg" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='mountain'">
+    <img src="http://i.imgur.com/MdNGOsU.png" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='grassland'">
+    <img src="https://i.redd.it/tgrcdqrbfjwy.gif" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='rough-terrain'">
+    <img src="https://steamuserimages-a.akamaihd.net/ugc/100603690261120555/3288949BD5D35B3BCFA9DE0B65FAADE54BBD701C/" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='sea'">
+    <img src="http://wallup.net/wp-content/uploads/2016/05/26/356350-pixel_art-sea-beach-rocks-digital_art.jpg" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='urban'">
+    <img src="https://orig00.deviantart.net/792a/f/2017/061/6/0/landscape_city_pixel_art_by_metalbrasier2x0-db0y5pj.gif" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='waters-edge'">
+    <img src="http://wallup.net/wp-content/uploads/2016/03/10/341369-digital_art-pixel_art-pixels-Moon-horizon-blue-reflection-nature-sea-clouds-hills-mountains-night-stars-landscape.jpg" alt="" class="backgroundImage">
+  </div>
+  <div *ngIf="habitatToDisplay.name==='rare'">
+    <img src="http://hexa.party/wp-content/uploads/2016/03/8-bit-Mountains.jpg" alt="" class="backgroundImage">
+  </div>
+
+  <h1 class="habitatName">{{habitatToDisplay.name.toUpperCase()}}   <button type="button" routerLink="/map" name="button">Back to map</button></h1>
 
 
-  <h1 class="habitatName">The {{habitatToDisplay.name}}</h1>
+  <button type="button" name="button" class="searchEasy btn btn-success" (click)="searchHabitat(habitatToDisplay, 'easy')">Search - Easy</button>
 
-  <img src="https://i.redd.it/6axfm8uck3oy.png" alt="" class="backgroundImage">
+  <button type="button" name="button" class="searchMedium btn btn-warning" (click)="searchHabitat(habitatToDisplay, 'medium')">Search - Medium</button>
 
-  <button type="button" name="button" class="searchEasy" (click)="searchHabitat(habitatToDisplay, easy)">Search - Easy</button>
-
-  <button type="button" name="button" class="searchMedium" (click)="searchHabitat(habitatToDisplay, medium)">Search - Medium</button>
-
-  <button type="button" name="button" class="searchHard" (click)="searchHabitat(habitatToDisplay, hard)">Search - Hard</button>
+  <button type="button" name="button" class="searchHard btn btn-danger" (click)="searchHabitat(habitatToDisplay, 'hard')">Search - Hard</button>
 
 </div>
