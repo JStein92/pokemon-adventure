@@ -44,8 +44,14 @@ export class MyPokemonComponent implements OnInit {
   }
 
   equip(pokemonToEquip){
-    this.pokemonService.equipPokemon(pokemonToEquip);
-    this.populateEquippedPokemonArray()
+    if (this.equippedPokemon.length<6){
+      this.pokemonService.equipPokemon(pokemonToEquip);
+      this.populateEquippedPokemonArray()
+    }
+    else{
+      alert("Only 6 Pokemon Can be Equipped At A Time");
+    }
+
   }
 
   showAllPokemon(){
