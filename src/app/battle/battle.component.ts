@@ -19,6 +19,7 @@ export class BattleComponent implements OnInit {
   public turn = 0;
   public playerAction = null;
   public battleEnded = false;
+  public battling = true;
 
   constructor(public pokemonService: PokemonService) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
@@ -36,6 +37,13 @@ export class BattleComponent implements OnInit {
       this.playerAttack(selection);
       if(this.opponent.currentHP > 0) {
         this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
+        if(this.battlingPokemon.currentHP <= 0) {
+          if (this.checkAllEquippedPokemonUnconscious()) {
+            this.battleOver(false);
+          } else {
+            alert('pick a new pokemon to battle!');
+          }
+        }
       } else {
         this.battleOver(true);
       }
@@ -45,6 +53,9 @@ export class BattleComponent implements OnInit {
       this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
       if(this.battlingPokemon.currentHP > 0) {
         this.playerAttack(selection);
+        if(this.opponent.currentHP <= 0) {
+          this.battleOver(true);
+        }
       } else {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
@@ -91,6 +102,15 @@ export class BattleComponent implements OnInit {
     console.log(this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '! ' + this.battlingPokemon.name + ' has ' + this.battlingPokemon.currentHP + ' hp left.');
   }
 
+  switchPokemon(pokemonToSwitch: Pokemon) {
+    if (pokemonToSwitch.currentHP > 0) {
+      this.battlingPokemon = pokemonToSwitch;
+    } else {
+      alert(pokemonToSwitch.name + ' has already fainted!');
+    }
+
+  }
+
   battleOver(victor: boolean) {
     this.battleEnded = true;
     if(victor) {
@@ -113,7 +133,6 @@ export class BattleComponent implements OnInit {
       return true;
     }
   }
-
 
 
   // battle() {

@@ -45,3 +45,12 @@ button:hover {
   background-color: #caccce;
   cursor: pointer;
 }
+
+#end-battle {
+  text-align: center;
+}
+
+.xp-gained {
+  padding: 0px;
+  margin-bottom: 5px;
+}
