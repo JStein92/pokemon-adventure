@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { GetPokemonComponent } from './get-pokemon/get-pokemon.component';
 import { BattleComponent } from './battle/battle.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
@@ -14,6 +13,7 @@ import { routing } from './app.routing';
 import { MapComponent } from './map/map.component';
 import { MyPokemonComponent } from './my-pokemon/my-pokemon.component';
 import { HabitatComponent } from './habitat/habitat.component';
+import { HomeComponent } from './home/home.component';
 
 
 export const firebaseConfig = {
@@ -25,12 +25,12 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    GetPokemonComponent,
     BattleComponent,
     MapComponent,
     MyPokemonComponent,
     HabitatComponent,
-    
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,HttpModule,

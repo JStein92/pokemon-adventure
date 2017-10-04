@@ -1,42 +1,44 @@
+body {
+  font-size: 100%;
+}
+
 .image {
-  position: relative;
+  position: absolute;
   width: 100%;
 }
 
 .habitat {
-  position: absolute;
-  z-index: 2;
+  position: relative;
+  float: left;
+  z-index: 1;
+  width: 100%;
+  padding-left: 0px;
 }
 
 h1 {
-  margin: 22px;
+  font-size: 6vh;
+  font-size: 6vw;
+  font-family: "Berkshire-Swash";
+  color: #f2ded5;
+  text-shadow: 3px 5px 3px black;
 }
 
-#habitat4 {
-  margin-left: 900px;
+h1:hover {
+  text-decoration: underline;
+  color: #f4bda1;
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
-#habitat8 {
-  margin-left: 0px;
+@font-face {
+  font-family: "Berkshire-Swash";
+  src: url("../../assets/fonts/BerkshireSwash-Regular.ttf");
 }
-#habitat5 {
-  margin-left: 500px;
-}
-#habitat2 {
-  margin-left: 300px;
-}
-#habitat3 {
-  margin-left: 700px;
-}
-#habitat7 {
 
+.app-my-pokemon {
+  background-color: pink;
 }
-#habitat6 {
-  margin-left: 500px;
-}
-#habitat0 {
-  margin-left: 400px;
-}
-#habitat1 {
-  margin-left: 300px;
+
+.map-face {
+  position: static;
 }
