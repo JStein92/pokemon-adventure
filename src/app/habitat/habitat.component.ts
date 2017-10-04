@@ -18,7 +18,8 @@ export class HabitatComponent implements OnInit {
   returnedData;
   newPokemon;
   apiURL:string = "http://pokeapi.co/api/v2/";
-
+  equippedPokemon = [];
+  allPokemon=[];
   difficulty;
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +32,21 @@ export class HabitatComponent implements OnInit {
     });
     this.pokemonService.getHabitatById(this.habitatId).subscribe(dataLastEmittedFromObserver => {
       this.habitatToDisplay = dataLastEmittedFromObserver;
-
-      console.log(this.habitatToDisplay);
     })
-    // this.habitatToDisplay = this.pokemonService.getHabitatById(this.habitatId);
+
+    this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
+      this.allPokemon = (allPokemonFromFirebase);
+      this.populateEquippedPokemonArray()
+    })
+
+  }
+  populateEquippedPokemonArray(){
+    this.equippedPokemon=[];
+    for (let i = 0; i < this.allPokemon.length; i++) {
+        if (this.allPokemon[i].equipped){
+          this.equippedPokemon.push(this.allPokemon[i]);
+        }
+    }
   }
 
   buildPokemon(pokemonToBuild){
@@ -52,13 +64,14 @@ export class HabitatComponent implements OnInit {
     let defense = pokemonToBuild.stats[3].base_stat;
     let activeMoves = pokemonToBuild.moves[0];
     let allMoves = pokemonToBuild.moves;
-    let playerActive = false;
+    let equipped=false;
+    if (this.equippedPokemon.length<6){
+       equipped = true;
+    }
 
-    this.newPokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,playerActive);
+    let newPokemon:Pokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
 
-
-    this.pokemonService.catchPokemon(this.newPokemon);
-    console.log(this.newPokemon);
+    this.pokemonService.catchPokemon(newPokemon);
 
   }
 
@@ -72,7 +85,7 @@ export class HabitatComponent implements OnInit {
       },
       () => {
           // console.log(this.returnedData);
-          this.buildPokemon(this.returnedData);
+        this.buildPokemon(this.returnedData);
       }
     );
   }
@@ -84,9 +97,14 @@ export class HabitatComponent implements OnInit {
     if (difficulty === "easy"){
         this.difficulty = Math.floor(Math.random()*(10-1)+1);
         console.log(this.difficulty)
-    } else if (difficulty==="")
+    } else if (difficulty==="medium")
     {
-
+      this.difficulty = Math.floor(Math.random()*(30-10)+10);
+      console.log(this.difficulty)
+    } else if (difficulty==="hard")
+    {
+      this.difficulty = Math.floor(Math.random()*(70-30)+30);
+      console.log(this.difficulty)
     }
 
     this.apiCall()

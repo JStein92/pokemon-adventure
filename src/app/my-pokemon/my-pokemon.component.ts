@@ -43,6 +43,11 @@ export class MyPokemonComponent implements OnInit {
     this.populateEquippedPokemonArray()
   }
 
+  equip(pokemonToEquip){
+    this.pokemonService.equipPokemon(pokemonToEquip);
+    this.populateEquippedPokemonArray()
+  }
+
   showAllPokemon(){
     if (this.showAllPokemonBool === false){
       this.showAllPokemonBool  = true;
