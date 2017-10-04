@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BattleComponent } from './battle/battle.component';
-import { GetPokemonComponent } from './get-pokemon/get-pokemon.component';
+
 import { MapComponent } from './map/map.component';
 import { HabitatComponent } from './habitat/habitat.component';
-
+import {HomeComponent} from './home/home.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -17,10 +17,6 @@ const appRoutes: Routes = [
     component: BattleComponent
   },
   {
-    path: 'getPokemon',
-    component: GetPokemonComponent
-  },
-  {
     path: 'map',
     component: MapComponent
   },
@@ -28,6 +24,10 @@ const appRoutes: Routes = [
     path: 'habitat/:id',
     component: HabitatComponent
   },
+  {
+    path: 'home',
+    component: HomeComponent
+  }
 
 ];
 

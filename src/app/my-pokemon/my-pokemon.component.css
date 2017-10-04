@@ -1,7 +1,10 @@
 .equipped-pokemon{
+  min-height: 100px;
   background-color: grey;
   padding: 15px;
   margin: 20px;
+  z-index: -1;
+  padding-top: 1%;
 }
 .card{
   display: inline-block;
@@ -12,4 +15,10 @@
 }
 .card-img-top{
   width: 100%;
+}
+
+h1 {
+  font-size: 6vh;
+  font-size: 6vw;
+  padding-top: 5%;
 }

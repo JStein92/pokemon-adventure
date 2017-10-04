@@ -12,8 +12,7 @@ body {
   float: left;
   z-index: 1;
   width: 100%;
-
-
+  padding-left: 0px;
 }
 
 h1 {
@@ -36,31 +35,10 @@ h1:hover {
   src: url("../../assets/fonts/BerkshireSwash-Regular.ttf");
 }
 
-#habitat4 {
-  width: 700px;
+.app-my-pokemon {
+  background-color: pink;
 }
 
-#habitat8 {
-  margin-left: 0px;
-}
-#habitat5 {
-  margin-left: 500px;
-}
-#habitat2 {
-  margin-left: 300px;
-}
-#habitat3 {
-  margin-left: 700px;
-}
-#habitat7 {
-
-}
-#habitat6 {
-  margin-left: 500px;
-}
-#habitat0 {
-  margin-left: 400px;
-}
-#habitat1 {
-  margin-left: 300px;
+.map-face {
+  position: static;
 }
