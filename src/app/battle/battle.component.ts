@@ -18,12 +18,14 @@ export class BattleComponent implements OnInit {
   public battlingPokemon: Pokemon;
   public turn = 0;
   public playerAction = null;
-  public battleEnded = false;
-  public battling = true;
+  public battleWon: boolean;
+  public battling: boolean;
 
   constructor(public pokemonService: PokemonService) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
     this.battlingPokemon = this.equippedPokemon[0];
+    this.battling = true;
+    this.battleWon = null;
   }
 
   ngOnInit() {
@@ -113,12 +115,11 @@ export class BattleComponent implements OnInit {
   }
 
   battleOver(victor: boolean) {
-    this.battleEnded = true;
     this.battling = false;
     if(victor) {
-      alert("you win");
+      this.battleWon = true;
     } else {
-      alert("all your pokemon have fainted!");
+      this.battleWon = false;
     }
   }
 
