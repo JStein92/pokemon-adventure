@@ -166,7 +166,7 @@ export class HabitatComponent implements OnInit {
     //console.log(habitatToSearch.pokemon_species[randomPokemon].name)
     this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;
     if (difficulty === "easy"){
-        this.difficulty = Math.floor(Math.random()*(10-1)+1);
+        this.difficulty = Math.floor(Math.random()*(3-1)+1);
         console.log(this.difficulty)
     } else if (difficulty==="medium")
     {

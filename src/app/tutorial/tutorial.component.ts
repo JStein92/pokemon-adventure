@@ -31,6 +31,8 @@ export class TutorialComponent implements OnInit {
     let activeMoves = [];
     let movesNumber = 2;
 
+
+
     for(let i = 0; i < movesNumber; i++) {
       activeMoves[i] = pokemonToBuild.moves[Math.floor(Math.random()*(pokemonToBuild.moves.length))].move;
     }
@@ -40,21 +42,23 @@ export class TutorialComponent implements OnInit {
     let types = pokemonToBuild.types;
     let level = 1;
     let currentLevelXP = 0;
-    let totalLevelXP = level*100;
+    let totalLevelXP = level * 20;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5].base_stat;
-    let maxHP = pokemonToBuild.stats[5].base_stat;
-    let speed = pokemonToBuild.stats[0].base_stat;
-    let attack = pokemonToBuild.stats[4].base_stat;
-    let defense = pokemonToBuild.stats[3].base_stat;
+    let currentHP = pokemonToBuild.stats[5].base_stat + (level * 10);
+    let maxHP = pokemonToBuild.stats[5].base_stat + (level * 10);
+    let speed = pokemonToBuild.stats[0].base_stat + level + 5;
+    let attack = pokemonToBuild.stats[4].base_stat + level + 5;
+    let defense = pokemonToBuild.stats[3].base_stat + level + 5;
     let allMoves = pokemonToBuild.moves;
     let equipped=true;
 
-    let newPokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
+    pokemonToBuild = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
+    console.log(pokemonToBuild);
 
-    this.pokemonService.catchPokemon(newPokemon);
 
-    console.log(newPokemon);
+    this.pokemonService.catchPokemon(pokemonToBuild);
+
+    //console.log(pokemonToBuild);
 
   }
 
