@@ -14,7 +14,7 @@
 
           <div class="myProgress">
             <div id="myBar" [style.width.%]="(battlingPokemon?.currentHP/battlingPokemon?.maxHP)*100">
-              {{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}
+              {{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}} hp
             </div>
           </div>
 
@@ -31,6 +31,14 @@
           <div class="d-flex justify-content-between level-type">
             <div class="p-1">Lvl. {{battlingPokemon?.level}}</div>
             <div class="p-1"><span *ngFor="let type of battlingPokemon?.types" class="pokemon-type">{{type.type.name}} </span></div>
+          </div>
+            <div class="progress xp-bar">
+            <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(battlingPokemon?.currentLevelXP/battlingPokemon?.totalLevelXP)*100">
+          </div>
+          <div class="progress-text">
+            {{battlingPokemon?.currentLevelXP}}/{{battlingPokemon?.totalLevelXP}} xp
+          </div>
+
           </div>
         </div>
 
@@ -71,7 +79,7 @@
 
         <div class="enemyProgress">
           <div id="enemyProgressBar" [style.width.%]="(opponent?.currentHP/opponent?.maxHP)*100">
-            {{opponent?.currentHP}}/{{opponent?.maxHP}}
+            {{opponent?.currentHP}}/{{opponent?.maxHP}} hp
           </div>
         </div>
 
@@ -126,8 +134,27 @@
             {{this.battlingPokemon.name}} gained {{opponent?.level * 5}} xp!
           </div>
 
+          <div *ngIf="showLevelUp">
+              <ul>
+              <li class="level-gain">{{this.battlingPokemon.name}} gained a level!</li>
+              <li class="level-gain-stats">{{this.battlingPokemon.name}} gained 5 hp!</li>
+              <li class="level-gain-stats">{{this.battlingPokemon.name}} gained 2 speed!</li>
+              <li class="level-gain-stats">{{this.battlingPokemon.name}} gained 2 attack!</li>
+                <li class="level-gain-stats">{{this.battlingPokemon.name}} gained 2 defense!</li>
+            </ul>
+          </div>
+
 
           <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div>
+
+          <div class="progress xp-bar">
+          <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(battlingPokemon?.currentLevelXP/battlingPokemon?.totalLevelXP)*100">
+        </div>
+        <div class="progress-text">
+          {{battlingPokemon?.currentLevelXP}}/{{battlingPokemon?.totalLevelXP}} xp
+        </div>
+
+        </div>
 
           <!-- <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div> -->
           <div class="d-flex justify-content-between level-type">

@@ -69,6 +69,7 @@ export class BattleComponent implements OnInit {
   public playerAction = null;
   public battleWon: boolean;
   public battling: boolean;
+  public showLevelUp: boolean;
 
   constructor(public pokemonService: PokemonService,private router: Router) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
@@ -207,6 +208,9 @@ backToMap(){
     if(victor) {
       this.battleWon = true;
       this.battlingPokemon.currentLevelXP += this.opponent.level * 5
+      if (this.battlingPokemon.currentLevelXP >= this.battlingPokemon.totalLevelXP) {
+        this.showLevelUp = true;
+      }
       this.pokemonService.updateXP(this.battlingPokemon);
     } else {
       this.battleWon = false;

@@ -24,7 +24,7 @@
 }
 
 .stats {
-  background-color: yellow;
+  background-color: #F8FCAC;
 }
 
 .pokemon-level {
@@ -32,7 +32,7 @@
 }
 
 .level-type {
-  background-color: cyan;
+  background-color: #FFE6CB;
 }
 
 .card {
@@ -107,4 +107,31 @@ button:hover {
 .opponent-log {
   float: right;
 
+}
+
+.progress-text {
+  position: absolute;
+  text-align: center;
+  line-height: 20px; /* line-height should be equal to bar height */
+  overflow: hidden;
+  width: 298px;
+  color: white;
+
+}
+
+.xp-bar {
+  background: gray;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.level-gain {
+  font-weight: bold;
+}
+
+.level-gain-stats {
+  font-size: .9em;
 }

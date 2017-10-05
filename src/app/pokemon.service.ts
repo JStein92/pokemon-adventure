@@ -102,16 +102,19 @@ stopSong(){
     let pokemonEntryInFirebase = this.getPokemonById(pokemon);
     if (pokemon.currentLevelXP >= pokemon.totalLevelXP) {
       pokemon.level++;
+      console.log(pokemon.level);
       pokemon.currentLevelXP -= pokemon.totalLevelXP;
-      pokemon.totalLevelXP *= 1.2;
+      pokemon.totalLevelXP = Math.floor(pokemon.totalLevelXP * 1.2);
       pokemon.speed += 2;
       pokemon.attack += 2;
       pokemon.defense += 2;
+      pokemon.maxHP += 5;
       pokemonEntryInFirebase.update({level:pokemon.level});
       pokemonEntryInFirebase.update({totalLevelXP:pokemon.totalLevelXP});
-      pokemonEntryInFirebase.update({level:pokemon.speed});
-      pokemonEntryInFirebase.update({level:pokemon.attack});
-      pokemonEntryInFirebase.update({level:pokemon.defense});
+      pokemonEntryInFirebase.update({speed:pokemon.speed});
+      pokemonEntryInFirebase.update({attack:pokemon.attack});
+      pokemonEntryInFirebase.update({defense:pokemon.defense});
+      pokemonEntryInFirebase.update({maxHP:pokemon.maxHP})
     }
     pokemonEntryInFirebase.update({currentLevelXP:pokemon.currentLevelXP});
   }
