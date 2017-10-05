@@ -41,11 +41,11 @@
        <button id="btnSignIn" (click)="signIn(email.value, password.value)"  class="btn btn-default">Sign In</button>
      </div>
      <div *ngIf ="!user">
-       <a (click)="googleLogin()">  <img id="googleIcon" src="./../assets/images/googleIcon.png" alt="googleIcon"> Log in with you google account</a>
+       <a (click)="googleLogin()">  <img id="googleIcon" src="./../assets/images/googleIcon.png" alt="googleIcon"> Log in with Google</a>
        <br><br>
      </div>
      <div *ngIf ="!user">
-       <a (click)="anonymousLogin()">  <img id="anonymousIcon" src="./../assets/images/anonymous.jpg" alt="anonimousIcon">Anonimous Login</a>
+       <a (click)="anonymousLogin()">  <img id="anonymousIcon" src="./../assets/images/anonymous.jpg" alt="anonimousIcon">Anonymous Login</a>
        <br><br><br>
      </div>
 

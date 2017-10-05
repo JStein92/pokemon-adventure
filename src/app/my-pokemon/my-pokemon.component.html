@@ -2,7 +2,12 @@
 
 <div class="container equipped-pokemon">
   <div class="row trainerHeader">
-      <h1><img src="https://vignette3.wikia.nocookie.net/pokemon/images/5/56/Red_%28game%29.png/revision/latest?cb=20090815115503" alt="" class="trainerImg"><span class="equipped-header">Equipped Pokemon {{equippedPokemon.length}}/6</span></h1>
+      <h1><img src="https://vignette3.wikia.nocookie.net/pokemon/images/5/56/Red_%28game%29.png/revision/latest?cb=20090815115503" alt="" class="trainerImg"><span class="equipped-header">Equipped Pokemon {{equippedPokemon.length}}/6</span>
+        <span *ngIf="!battling">
+          <button (click) = "healPokemon()" type="button" class="btn btn-success" name="button">Heal My Pokemon</button>
+        </span>
+      </h1>
+
     </div>
 
     <div class="card-deck" *ngIf="!battling">
