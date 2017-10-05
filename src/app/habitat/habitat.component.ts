@@ -132,8 +132,8 @@ export class HabitatComponent implements OnInit {
     let currentLevelXP = 0;
     let totalLevelXP = level * 20;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5].base_stat + level;
-    let maxHP = pokemonToBuild.stats[5].base_stat + level;
+    let currentHP = pokemonToBuild.stats[5].base_stat + (level * 2);
+    let maxHP = pokemonToBuild.stats[5].base_stat + (level * 2);
     let speed = pokemonToBuild.stats[0].base_stat + level;
     let attack = pokemonToBuild.stats[4].base_stat + level;
     let defense = pokemonToBuild.stats[3].base_stat + level;
