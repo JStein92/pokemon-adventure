@@ -130,13 +130,13 @@ export class HabitatComponent implements OnInit {
     let types = pokemonToBuild.types;
     let level = this.difficulty;
     let currentLevelXP = 0;
-    let totalLevelXP = level*100;
+    let totalLevelXP = level * 20;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5].base_stat;
-    let maxHP = pokemonToBuild.stats[5].base_stat;
-    let speed = pokemonToBuild.stats[0].base_stat;
-    let attack = pokemonToBuild.stats[4].base_stat;
-    let defense = pokemonToBuild.stats[3].base_stat;
+    let currentHP = pokemonToBuild.stats[5].base_stat + level;
+    let maxHP = pokemonToBuild.stats[5].base_stat + level;
+    let speed = pokemonToBuild.stats[0].base_stat + level;
+    let attack = pokemonToBuild.stats[4].base_stat + level;
+    let defense = pokemonToBuild.stats[3].base_stat + level;
     let allMoves = pokemonToBuild.moves;
     let equipped=false;
 

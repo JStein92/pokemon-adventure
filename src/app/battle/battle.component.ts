@@ -105,7 +105,8 @@ backToMap(){
   }
   battle(selection: number) {
     this.turn++;
-    console.log(this.equippedPokemon);
+    console.log("number of equipped pokemon: " + this.equippedPokemon.length);
+    // this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     if(this.isPlayerFirstToGo()) {
       this.playerAttack(selection);
@@ -117,7 +118,6 @@ backToMap(){
             this.battleOver(false);
           } else {
           //  alert("UPPER BLOCK");
-            console.log("number of equipped pokemon: " + this.equippedPokemon.length);
             alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
         }
@@ -139,7 +139,6 @@ backToMap(){
           this.battleOver(false);
         } else {
           //alert("LOWER BLOCK");
-          console.log("number of equipped pokemon: " + this.equippedPokemon.length);
           alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
       }
@@ -180,6 +179,7 @@ backToMap(){
     }
 
     this.pokemonService.updateStats(this.battlingPokemon);
+    this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     this.opponentLog = this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '!';
   }
@@ -200,6 +200,8 @@ backToMap(){
 
     if(victor) {
       this.battleWon = true;
+      this.battlingPokemon.currentLevelXP += this.opponent.level * 5
+      this.pokemonService.updateXP(this.battlingPokemon);
     } else {
       this.battleWon = false;
     }
