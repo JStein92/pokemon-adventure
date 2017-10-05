@@ -14,6 +14,9 @@
 
           <div class="myProgress">
             <div id="myBar" [style.width.%]="(battlingPokemon?.currentHP/battlingPokemon?.maxHP)*100">
+
+            </div>
+            <div class="progress-text">
               {{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}} hp
             </div>
           </div>
