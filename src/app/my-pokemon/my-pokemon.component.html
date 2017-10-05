@@ -15,8 +15,8 @@
       <div *ngIf="pokemon.equipped && !battling" class="isEquipped" (click)="unequip(pokemon)">
         Click to Unequip
       </div>
-      <div *ngIf="battling">
-        <button (click)="switchPokemon(pokemon)" class="btn btn-info">Swap!</button>
+      <div *ngIf="battling" (click)="switchPokemon(pokemon)" class="swap">
+        Swap!
       </div>
     </div>
   </div>

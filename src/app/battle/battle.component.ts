@@ -24,7 +24,6 @@ export class BattleComponent implements OnInit {
   constructor(public pokemonService: PokemonService) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
     this.battlingPokemon = this.equippedPokemon[0];
-
   }
 
   ngOnInit() {
@@ -39,12 +38,14 @@ export class BattleComponent implements OnInit {
         this.opponentAttack(Math.floor(Math.random() * (this.opponent.activeMoves.length)));
         if(this.battlingPokemon.currentHP <= 0) {
           if (this.checkAllEquippedPokemonUnconscious()) {
+            // the false argument denotes that the player lost
             this.battleOver(false);
           } else {
             alert('pick a new pokemon to battle!');
           }
         }
       } else {
+        // the true argument denotes that the player won
         this.battleOver(true);
       }
 
@@ -60,7 +61,7 @@ export class BattleComponent implements OnInit {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
         } else {
-          alert('pick a new pokemon to battle!');
+          alert('Pick a new pokemon to battle!');
         }
       }
     }
