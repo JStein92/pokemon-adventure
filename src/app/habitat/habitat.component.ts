@@ -120,9 +120,6 @@ export class HabitatComponent implements OnInit {
     let defense = pokemonToBuild.stats[3].base_stat;
     let allMoves = pokemonToBuild.moves;
     let equipped=false;
-    if (this.equippedPokemon.length<6){
-       equipped = true;
-    }
 
     this.newPokemon = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
 
