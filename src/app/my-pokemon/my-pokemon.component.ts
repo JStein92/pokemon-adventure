@@ -49,6 +49,7 @@ import {
 export class MyPokemonComponent implements OnInit {
   @Input() battling: boolean;
   @Output() switchPokemonSender = new EventEmitter();
+  @Output() healPokemonSender = new EventEmitter();
   allPokemon = null;
   equippedPokemon = [];
   showAllPokemonBool = false;
@@ -66,6 +67,7 @@ export class MyPokemonComponent implements OnInit {
 
   healPokemon(){
     this.pokemonService.healPokemon();
+    this.healPokemonSender.emit();
   }
 
   populateEquippedPokemonArray(){
@@ -101,6 +103,7 @@ export class MyPokemonComponent implements OnInit {
     }
 
   }
+
 
   showAllPokemon(){
     if (this.showAllPokemonBool === false){

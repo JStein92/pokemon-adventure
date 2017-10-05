@@ -58,3 +58,12 @@ h1:hover {
 .app-my-pokemon{
   margin-top: 50px;
 }
+
+.needHealing{
+  padding-top: 30px;
+}
+.needHealing h2{
+    font-size: 5em;
+    color: red;
+    text-shadow: 2px 2px 2px black;
+}

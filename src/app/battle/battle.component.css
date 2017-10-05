@@ -6,12 +6,17 @@
   text-align: center;
   margin: 10px;
 }
-
+.btn-block{
+  width: 100%;
+}
 .card-img-top {
   height: 200px;
   width: 200px;
   display: block;
   margin: auto;
+}
+.pokeballImg{
+  width: 30px;
 }
 
 .health {
@@ -39,7 +44,7 @@ button {
   width: 130px;
   height: 50px;
   font-size: .95em;
-  background-color: white;
+
 }
 .btn-center{
   text-align: center;
@@ -89,7 +94,7 @@ button:hover {
 
 #enemyProgressBar {
   height: 30px;
-  background-color: #503e08;
+  background-color: #4CAF50;
   text-align: center;
   line-height: 30px;
   color: white;

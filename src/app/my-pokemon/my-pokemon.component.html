@@ -14,7 +14,8 @@
     <div [@flyInFromTop]="'in'" class="card card-equipped" *ngFor="let pokemon of equippedPokemon" >
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
-        <h4 class="card-title">{{pokemon.name}}</h4>
+        <h4 *ngIf="pokemon.currentHP>0" class="card-title" >{{pokemon.name}}</h4>
+        <h4 *ngIf="pokemon.currentHP===0" class="card-title" >{{pokemon.name}} (Fainted)</h4>
         <p class="card-text"></p>
       </div>
       <ul class="list-group list-group-flush">
@@ -31,14 +32,15 @@
   <div class="card card-equipped" *ngFor="let pokemon of equippedPokemon" >
     <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title">{{pokemon.name}}</h4>
+      <h4 *ngIf="pokemon.currentHP>0" class="card-title" >{{pokemon.name}}</h4>
+      <h4 *ngIf="pokemon.currentHP===0" class="card-title" >{{pokemon.name}} (Fainted)</h4>
       <p class="card-text"></p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Level: {{pokemon.level}}</li>
       <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
     </ul>
-    <div (click)="switchPokemon(pokemon)" class="swap">
+    <div *ngIf="pokemon.currentHP>0"(click)="switchPokemon(pokemon)" class="swap">
       Swap!
     </div>
   </div>
@@ -54,10 +56,11 @@
 
 <div class="container all-pokemon" *ngIf="showAllPokemonBool">
   <h1>All Pokemon</h1>
-    <div  class="card all-pokemon-card" *ngFor="let pokemon of allPokemon" (click)=equip(pokemon)>
+    <div  class="card all-pokemon-card" *ngFor="let pokemon of allPokemon" (click)=equip(pokemon) >
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
-        <h4 class="card-title">{{pokemon.name}}</h4>
+        <h4 *ngIf="pokemon.currentHP>0" class="card-title" >{{pokemon.name}}</h4>
+        <h4 *ngIf="pokemon.currentHP===0" class="card-title" >{{pokemon.name}} (Fainted)</h4>
         <p class="card-text"></p>
       </div>
       <ul class="list-group list-group-flush">
