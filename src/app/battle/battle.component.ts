@@ -118,7 +118,7 @@ backToMap(){
             this.battleOver(false);
           } else {
           //  alert("UPPER BLOCK");
-            alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
+            // alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
         }
       } else {

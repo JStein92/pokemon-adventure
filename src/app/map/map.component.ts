@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 
 export class MapComponent implements OnInit {
   habitats = null;
+  needHealing = false;
 
   constructor(private router: Router, private pokemonService: PokemonService) { }
 
@@ -24,13 +25,30 @@ export class MapComponent implements OnInit {
 
     this.pokemonService.playSong("../assets/music/map.mp3");
   }
+healedPokemon(){
+  this.needHealing=false;
 
+}
   stopSong(){
     this.pokemonService.stopSong();
   }
 
   goToHabitat(clickedHabitat) {
+    this.needHealing=false;
+    let allowed = false;
     this.pokemonService.stopSong();
-    this.router.navigate(['habitat', clickedHabitat.id])
+    this.pokemonService.getEquippedPokemon().forEach(function(pokemon){
+      if (pokemon.currentHP>0){
+        allowed=true;
+      }
+    });
+
+    if (allowed){
+      this.router.navigate(['habitat', clickedHabitat.id]);
+
+    } else{
+      this.needHealing=true;
+    }
+
   }
 }
