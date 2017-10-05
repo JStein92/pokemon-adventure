@@ -32,6 +32,7 @@
 
 .card {
   width: 300px;
+  max-width: 100
 }
 
 button {
@@ -65,9 +66,40 @@ button:hover {
   margin-bottom: 5px;
 }
 
+
+.myProgress {
+  width: 300px;
+  background-color: #bbe6a9;
+}
+
+#myBar {
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  max-width: 100%;
+}
+
+
+.enemyProgress {
+  width: 300px;
+  background-color: #bbe6a9;
+}
+
+#enemyProgressBar {
+  height: 30px;
+  background-color: #503e08;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  max-width: 100%;
+}
+
 .player-log {
   float: left;
 }
 .opponent-log {
   float: right;
+
 }
