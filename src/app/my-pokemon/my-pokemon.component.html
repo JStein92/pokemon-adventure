@@ -1,10 +1,11 @@
 <div class="row buffer"></div>
+
 <div class="container equipped-pokemon">
   <div class="row trainerHeader">
       <h1><img src="https://vignette3.wikia.nocookie.net/pokemon/images/5/56/Red_%28game%29.png/revision/latest?cb=20090815115503" alt="" class="trainerImg"><span class="equipped-header">Equipped Pokemon {{equippedPokemon.length}}/6</span></h1>
     </div>
 
-    <div class="card-deck">
+    <div class="card-deck" *ngIf="!battling">
     <div [@flyInFromTop]="'in'" class="card card-equipped" *ngFor="let pokemon of equippedPokemon" >
       <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
       <div class="card-block">
@@ -15,19 +16,30 @@
         <li class="list-group-item">Level: {{pokemon.level}}</li>
         <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
       </ul>
-      <div *ngIf="pokemon.equipped && !battling" class="isEquipped" (click)="unequip(pokemon)">
+      <div *ngIf="pokemon.equipped" class="isEquipped" (click)="unequip(pokemon)">
         Click to Unequip
-      </div>
-<<<<<<< HEAD
-      <div *ngIf="battling" (click)="switchPokemon(pokemon)" class="swap">
-        Swap!
-=======
-      <div *ngIf="battling">
-        <button (click)="switchPokemon(pokemon)" class="btn btn-info swap">Swap!</button>
->>>>>>> e3d9f556ad95ac1976782802013e9a0b97c58503
       </div>
     </div>
   </div>
+
+  <div class="card-deck" *ngIf="battling">
+  <div class="card card-equipped" *ngFor="let pokemon of equippedPokemon" >
+    <img class="card-img-top" src='{{pokemon.sprites[0]}}' alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">{{pokemon.name}}</h4>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Level: {{pokemon.level}}</li>
+      <li class="list-group-item">HP: {{pokemon.currentHP}}/{{pokemon.maxHP}}</li>
+    </ul>
+    <div (click)="switchPokemon(pokemon)" class="swap">
+      Swap!
+    </div>
+  </div>
+</div>
+
+
   <div class="btns" *ngIf="!battling">
     <button *ngIf="!showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Show All Pokemon</button>
     <button *ngIf="showAllPokemonBool" type="button" name="button" class="btn btn-info show-all-btn" (click)="showAllPokemon()">Hide All Pokemon</button>
