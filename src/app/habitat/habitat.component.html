@@ -4,7 +4,7 @@
     <img src="https://i.redd.it/6axfm8uck3oy.png" alt="" class="backgroundImage">
   </div>
   <div *ngIf="habitatToDisplay.name==='forest'">
-    <img src="https://i.ytimg.com/vi/VkLKY4rx8B0/maxresdefault.jpg" alt="" class="backgroundImage">
+    <img src="http://renatures.com/wp-content/uploads/2017/03/forests-pretty-nature-art-pixel-forest-wallpaper-photos.jpg" alt="" class="backgroundImage">
   </div>
   <div *ngIf="habitatToDisplay.name==='mountain'">
     <img src="http://i.imgur.com/MdNGOsU.png" alt="" class="backgroundImage">
@@ -28,14 +28,16 @@
     <img src="http://hexa.party/wp-content/uploads/2016/03/8-bit-Mountains.jpg" alt="" class="backgroundImage">
   </div>
 
-  <h1 class="habitatName">{{habitatToDisplay.name.toUpperCase()}}   <button type="button" (click)="stopSong()" routerLink="/map" name="button">Back to map</button></h1>
+  <button type="button" (click)="stopSong()" routerLink="/map" class="btn btn-warning back">Back to map</button>
+
+  <h1 class="habitatName" [@flyInFromTop]="'in'">{{habitatToDisplay.name.toUpperCase()}} </h1>
 
 
-  <button type="button" name="button" class="searchEasy btn btn-success" (click)="searchHabitat(habitatToDisplay, 'easy')">Search - Easy</button>
+  <button  [@flyInFromSide]="'in'"type="button" name="button" class="searchEasy search btn btn-success" (click)="searchHabitat(habitatToDisplay, 'easy')">Search - Easy</button>
 
-  <button type="button" name="button" class="searchMedium btn btn-warning" (click)="searchHabitat(habitatToDisplay, 'medium')">Search - Medium</button>
+  <button [@flyInFromSide]="'in'" type="button" name="button" class="searchMedium search btn btn-warning" (click)="searchHabitat(habitatToDisplay, 'medium')">Search - Medium</button>
 
-  <button type="button" name="button" class="searchHard btn btn-danger" (click)="searchHabitat(habitatToDisplay, 'hard')">Search - Hard</button>
+  <button [@flyInFromSide]="'in'" type="button" name="button" class="searchHard search btn btn-danger" (click)="searchHabitat(habitatToDisplay, 'hard')">Search - Hard</button>
 
 </div>
 

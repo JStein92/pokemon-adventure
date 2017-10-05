@@ -28,3 +28,10 @@ background-position: center;
 .backToLogin{
   margin-top: 20px;
 }
+.delete{
+  bottom: 0;
+  position: fixed;
+}
+.btn:hover{
+  cursor: pointer;
+}

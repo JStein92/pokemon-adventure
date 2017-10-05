@@ -2,12 +2,58 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../player.model';
 import { Pokemon } from '../pokemon.model';
 import { PokemonService } from '../pokemon.service';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  keyframes,
+  AnimationEvent
+} from '@angular/animations';
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
   styleUrls: ['./battle.component.css'],
-  providers: [PokemonService]
+  providers: [PokemonService],
+  animations: [
+      trigger('flyInFromTop', [
+        state('in', style({transform: 'translateY(0)'})),
+        transition('void => *', [
+          animate(".9s ease", keyframes([
+            style({opacity: 0, transform: 'translateY(-100%)', offset: 0}),
+            style({opacity: 1, transform: 'translateY(5px)',  offset: 0.99}),
+            style({opacity: 1, transform: 'translateY(0)',     offset: 1.0})
+          ]))
+        ]),
+      ]),
+      trigger('flyInFromSide', [
+        state('in', style({transform: 'translateX(0)'})),
+        transition('void => *', [
+          animate("0s 0s", keyframes([
+            style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
+          ])),
+          animate(".7s 0s ease", keyframes([
+            style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
+            style({opacity: 1, transform: 'translateX(5px)',  offset: 0.99}),
+            style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
+          ]))
+        ]),
+      ]),
+      trigger('flyInFromRightSide', [
+        state('in', style({transform: 'translateX(0)'})),
+        transition('void => *', [
+          animate("0s 0s", keyframes([
+            style({opacity: 0, transform: 'translateX(100%)', offset: 0}),
+          ])),
+          animate(".7s 1s ease", keyframes([
+            style({opacity: 0, transform: 'translateX(100%)', offset: 0}),
+            style({opacity: 1, transform: 'translateX(5px)',  offset: 0.99}),
+            style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
+          ]))
+        ]),
+      ])
+    ]
 })
 export class BattleComponent implements OnInit {
 

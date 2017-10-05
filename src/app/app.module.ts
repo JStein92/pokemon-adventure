@@ -8,12 +8,13 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing } from './app.routing';
 import { MapComponent } from './map/map.component';
 import { MyPokemonComponent } from './my-pokemon/my-pokemon.component';
 import { HabitatComponent } from './habitat/habitat.component';
 import { HomeComponent } from './home/home.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 
 export const firebaseConfig = {
@@ -30,10 +31,11 @@ export const firebaseConfig = {
     MyPokemonComponent,
     HabitatComponent,
     HomeComponent,
+    TutorialComponent,
 
   ],
   imports: [
-    BrowserModule,HttpModule,
+    BrowserModule,HttpModule,BrowserAnimationsModule,
     HttpModule,
     FormsModule,
     routing,
