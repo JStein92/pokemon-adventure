@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon.model';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +14,7 @@ import { Pokemon } from '../pokemon.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private authService: AuthenticationService, private router: Router) { }
 amountOfPokemon;
   ngOnInit() {
 
@@ -77,4 +81,10 @@ amountOfPokemon;
     );
   }
 
+
+  googleLogout() {
+    this.authService.logout();
+     this.router.navigate(['']);
+    this.stopSong();
+  }
 }

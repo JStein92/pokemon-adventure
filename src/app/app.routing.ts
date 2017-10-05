@@ -7,10 +7,12 @@ import { BattleComponent } from './battle/battle.component';
 import { MapComponent } from './map/map.component';
 import { HabitatComponent } from './habitat/habitat.component';
 import {HomeComponent} from './home/home.component';
+import { LoginComponent } from './login/login.component';
+
 const appRoutes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: LoginComponent
   },
   {
     path: 'battle',
