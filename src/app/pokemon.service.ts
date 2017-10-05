@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
+import { Pokemon } from './pokemon.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
@@ -92,7 +93,10 @@ stopSong(){
     pokemonEntryInFirebase.update({equipped:true});
   }
 
-
+  updateStats(pokemon) {
+    let pokemonEntryInFirebase = this.getPokemonById(pokemon);
+    pokemonEntryInFirebase.update({currentHP:pokemon.currentHP});
+  }
 
   getHabitatById(habitatId) {
     habitatId -= 1;
