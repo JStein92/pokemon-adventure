@@ -14,10 +14,13 @@ export class TutorialComponent implements OnInit {
   constructor(private pokemonService: PokemonService,private router: Router) { }
 
   ngOnInit() {
+    this.pokemonService.playSong("../assets/music/tutorial.mp3");
+
   }
   next(){
     this.line++;
     if (this.line===7){
+        this.pokemonService.stopSong();
         this.router.navigate(['map']);
     }
   }
