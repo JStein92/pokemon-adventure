@@ -6,13 +6,16 @@
   width: auto;
 
 }
+.back{
+
+}
 .habitatName{
   font-size: 6em;
   color: white;
   padding: 50px;
     text-shadow: 2px 2px 4px black;
 }
-.btn{
+.search{
   font-size: 2em;
   padding: 20px;
   margin: 40px;

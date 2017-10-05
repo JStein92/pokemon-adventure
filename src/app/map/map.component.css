@@ -5,12 +5,17 @@ body {
 img {
   width: 100%;
 }
+.home{
+  height: 30px;
+}
 
 .absoluteContainer {
   position: absolute;
   width: 100%;
 }
-
+.btn:hover{
+  cursor: pointer;
+}
 .habitat {
   position: relative;
   float: left;

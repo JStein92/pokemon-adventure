@@ -2,10 +2,10 @@
   <div class="jumbotron">
     <h1 class="title">Pokemon Adventure</h1>
 
-    <h1><button type="button" name="button" class="btn btn-warning btnplay" (click) = "stopSong()" routerLink="/map">Play!</button></h1>
+    <h1><button type="button" name="button" class="btn btn-warning btnplay" (click) = "goToGame()" >Play!</button></h1>
 
     <p><button type="button" name="button" class="btn backToLogin">Back to Login</button></p>
-
+    <button type="button" name="button" (click)="deleteAllPokemon()" class="btn btn-danger delete">Delete all Pokemon</button>
     <p class="credits">By: Ben, Michael, Robert, Kim, and Jonathan</p>
   </div>
 </body>

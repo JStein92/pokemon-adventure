@@ -1,0 +1,26 @@
+.oakText{
+
+  margin-top: 50px;
+  font-size: 3em;
+
+}
+.oak img{
+  width: 400px;
+}
+.starters{
+  text-align: center;
+}
+.starter{
+  width: 200px;
+  background-color: #f4f4f4;
+
+}
+body{
+  background-color: #fffcf2;
+}
+.btn{
+  margin: 10px;
+}
+.map{
+  width: 400px;
+}

@@ -18,6 +18,11 @@ constructor(private http: Http, private database: AngularFireDatabase) {
   this.habitats = database.list('habitats');
 }
 
+deleteAllPokemon(){
+  let allPokemon = this.database.object('allPokemon/');
+  allPokemon.remove();
+}
+
 playSong(song){
   this.audio.pause();
   this.audio.currentTime=0;
@@ -76,7 +81,7 @@ stopSong(){
   getHabitatById(habitatId) {
     habitatId -= 1;
     let returnedHabitat = this.database.object('habitats/' + habitatId);
-    console.log(returnedHabitat);
+  //  console.log(returnedHabitat);
     return returnedHabitat;
   }
 
