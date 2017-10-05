@@ -14,7 +14,11 @@ import { MapComponent } from './map/map.component';
 import { MyPokemonComponent } from './my-pokemon/my-pokemon.component';
 import { HabitatComponent } from './habitat/habitat.component';
 import { HomeComponent } from './home/home.component';
+
+import { LoginComponent } from './login/login.component';
+
 import { TutorialComponent } from './tutorial/tutorial.component';
+
 
 
 export const firebaseConfig = {
@@ -31,7 +35,9 @@ export const firebaseConfig = {
     MyPokemonComponent,
     HabitatComponent,
     HomeComponent,
-    TutorialComponent,
+    LoginComponent,
+    TutorialComponent
+
 
   ],
   imports: [
