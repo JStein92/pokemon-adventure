@@ -38,6 +38,14 @@
 }
 .isEquipped{
   background-color: #fffde2;
+  text-align: center;
+}
+.swap{
+  background-color: #d1e2ff;
+  text-align: center;
+}
+.swap:hover{
+  background-color: #94bbfc;
 }
 .notEquipped{
   background-color: #e2ffe2;
