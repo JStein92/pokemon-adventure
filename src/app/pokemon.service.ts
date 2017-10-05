@@ -98,6 +98,24 @@ stopSong(){
     pokemonEntryInFirebase.update({currentHP:pokemon.currentHP});
   }
 
+  updateXP(pokemon) {
+    let pokemonEntryInFirebase = this.getPokemonById(pokemon);
+    if (pokemon.currentLevelXP >= pokemon.totalLevelXP) {
+      pokemon.level++;
+      pokemon.currentLevelXP -= pokemon.totalLevelXP;
+      pokemon.totalLevelXP *= 1.2;
+      pokemon.speed += 2;
+      pokemon.attack += 2;
+      pokemon.defense += 2;
+      pokemonEntryInFirebase.update({level:pokemon.level});
+      pokemonEntryInFirebase.update({totalLevelXP:pokemon.totalLevelXP});
+      pokemonEntryInFirebase.update({level:pokemon.speed});
+      pokemonEntryInFirebase.update({level:pokemon.attack});
+      pokemonEntryInFirebase.update({level:pokemon.defense});
+    }
+    pokemonEntryInFirebase.update({currentLevelXP:pokemon.currentLevelXP});
+  }
+
   getHabitatById(habitatId) {
     habitatId -= 1;
     let returnedHabitat = this.database.object('habitats/' + habitatId);

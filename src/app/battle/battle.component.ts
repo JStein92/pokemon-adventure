@@ -95,7 +95,8 @@ export class BattleComponent implements OnInit {
 
   battle(selection: number) {
     this.turn++;
-    console.log(this.equippedPokemon);
+    console.log("number of equipped pokemon: " + this.equippedPokemon.length);
+    // this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     if(this.isPlayerFirstToGo()) {
       this.playerAttack(selection);
@@ -106,8 +107,6 @@ export class BattleComponent implements OnInit {
             // the false argument denotes that the player lost
             this.battleOver(false);
           } else {
-            alert("UPPER BLOCK");
-            console.log("number of equipped pokemon: " + this.equippedPokemon.length);
             alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
         }
@@ -128,8 +127,6 @@ export class BattleComponent implements OnInit {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
         } else {
-          alert("LOWER BLOCK");
-          console.log("number of equipped pokemon: " + this.equippedPokemon.length);
           alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
       }
@@ -170,6 +167,7 @@ export class BattleComponent implements OnInit {
     }
 
     this.pokemonService.updateStats(this.battlingPokemon);
+    this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     this.opponentLog = this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '!';
   }
@@ -187,6 +185,8 @@ export class BattleComponent implements OnInit {
     this.battling = false;
     if(victor) {
       this.battleWon = true;
+      this.battlingPokemon.currentLevelXP += this.opponent.level * 5
+      this.pokemonService.updateXP(this.battlingPokemon);
     } else {
       this.battleWon = false;
     }
