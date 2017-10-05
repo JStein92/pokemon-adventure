@@ -114,6 +114,7 @@ export class BattleComponent implements OnInit {
 
   battleOver(victor: boolean) {
     this.battleEnded = true;
+    this.battling = false;
     if(victor) {
       alert("you win");
     } else {

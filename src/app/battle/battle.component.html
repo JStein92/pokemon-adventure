@@ -70,7 +70,7 @@
 </div>
 
 <div *ngIf="battleEnded">
-  <h1 id="end-battle">THE BATTLE HAS ENDED</h1>
+  <h1 id="end-battle">The Battle Is Over!</h1>
   <div class="d-flex justify-content-center">
 
     <div class="p-5">
@@ -80,8 +80,7 @@
           <img class="card-img-top" src="{{battlingPokemon?.sprites[0]}}" alt="Card image cap">
 
           <div class="xp-gained">
-            <div>XP Gained!</div>
-            <div>{{opponent?.level * 5}}</div>
+            {{this.battlingPokemon.name}} gained {{opponent?.level * 5}} xp!
           </div>
 
           <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div>
