@@ -1,4 +1,140 @@
 {
+  "damages":[{
+    "name": "normal",
+    "generation": {
+      "url": "https://pokeapi.co/api/v2/generation/1/",
+      "name": "generation-i"
+    },
+    "damage_relations": {
+      "half_damage_from": [
+
+      ],
+      "no_damage_from": [
+        {
+          "url": "https://pokeapi.co/api/v2/type/8/",
+          "name": "ghost"
+        }
+      ],
+      "half_damage_to": [
+        {
+          "url": "https://pokeapi.co/api/v2/type/6/",
+          "name": "rock"
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/type/9/",
+          "name": "steel"
+        }
+      ],
+      "double_damage_from": [
+        {
+          "url": "https://pokeapi.co/api/v2/type/2/",
+          "name": "fighting"
+        }
+      ],
+      "no_damage_to": [
+        {
+          "url": "https://pokeapi.co/api/v2/type/8/",
+          "name": "ghost"
+        }
+      ],
+      "double_damage_to": [
+
+      ]
+    }
+  },
+  {
+  "name": "fighting",
+  "generation": {
+    "url": "https://pokeapi.co/api/v2/generation/1/",
+    "name": "generation-i"
+  },
+  "damage_relations": {
+    "half_damage_from": [
+      {
+        "url": "https://pokeapi.co/api/v2/type/6/",
+        "name": "rock"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/7/",
+        "name": "bug"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/17/",
+        "name": "dark"
+      }
+    ],
+    "no_damage_from": [
+
+    ],
+    "half_damage_to": [
+      {
+        "url": "https://pokeapi.co/api/v2/type/3/",
+        "name": "flying"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/4/",
+        "name": "poison"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/7/",
+        "name": "bug"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/14/",
+        "name": "psychic"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/18/",
+        "name": "fairy"
+      }
+    ],
+    "double_damage_from": [
+      {
+        "url": "https://pokeapi.co/api/v2/type/3/",
+        "name": "flying"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/14/",
+        "name": "psychic"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/18/",
+        "name": "fairy"
+      }
+    ],
+    "no_damage_to": [
+      {
+        "url": "https://pokeapi.co/api/v2/type/8/",
+        "name": "ghost"
+      }
+    ],
+    "double_damage_to": [
+      {
+        "url": "https://pokeapi.co/api/v2/type/1/",
+        "name": "normal"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/6/",
+        "name": "rock"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/9/",
+        "name": "steel"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/15/",
+        "name": "ice"
+      },
+      {
+        "url": "https://pokeapi.co/api/v2/type/17/",
+        "name": "dark"
+      }
+    ]
+  }
+}
+
+],
+
   "allPokemon":[
 
   ],

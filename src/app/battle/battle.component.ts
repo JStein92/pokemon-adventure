@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../player.model';
 import { Pokemon } from '../pokemon.model';
 import { PokemonService } from '../pokemon.service';
+import { Router } from '@angular/router';
 import {
   trigger,
   state,
@@ -69,7 +70,7 @@ export class BattleComponent implements OnInit {
   public battleWon: boolean;
   public battling: boolean;
 
-  constructor(public pokemonService: PokemonService) {
+  constructor(public pokemonService: PokemonService,private router: Router) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     this.battling = true;
@@ -91,8 +92,17 @@ export class BattleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.pokemonService.playSong("../assets/music/battle.mp3");
   }
 
+backToMap(){
+  this.stopSong();
+  this.router.navigate(['map'])
+
+}
+  stopSong(){
+    this.pokemonService.stopSong();
+  }
   battle(selection: number) {
     this.turn++;
     console.log(this.equippedPokemon);
@@ -106,7 +116,7 @@ export class BattleComponent implements OnInit {
             // the false argument denotes that the player lost
             this.battleOver(false);
           } else {
-            alert("UPPER BLOCK");
+          //  alert("UPPER BLOCK");
             console.log("number of equipped pokemon: " + this.equippedPokemon.length);
             alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
@@ -128,7 +138,7 @@ export class BattleComponent implements OnInit {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
         } else {
-          alert("LOWER BLOCK");
+          //alert("LOWER BLOCK");
           console.log("number of equipped pokemon: " + this.equippedPokemon.length);
           alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
@@ -185,6 +195,9 @@ export class BattleComponent implements OnInit {
 
   battleOver(victor: boolean) {
     this.battling = false;
+    this.stopSong();
+    this.pokemonService.playSong("../assets/music/victory.mp3");
+
     if(victor) {
       this.battleWon = true;
     } else {

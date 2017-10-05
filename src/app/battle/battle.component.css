@@ -40,7 +40,13 @@ button {
   font-size: .95em;
   background-color: white;
 }
-
+.btn-center{
+  text-align: center;
+margin: 10px;
+}
+.btn-warning{
+    background-color: #fffad6;
+}
 button:hover {
   background-color: #caccce;
   cursor: pointer;
