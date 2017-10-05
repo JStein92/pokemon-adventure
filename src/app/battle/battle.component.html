@@ -122,5 +122,6 @@
   </div>
 
 </div>
-
-<app-my-pokemon [battling]="battling" (switchPokemonSender)="switchPokemon($event)"></app-my-pokemon>
+<div *ngIf="(battling)">
+  <app-my-pokemon [battling]="battling" (switchPokemonSender)="switchPokemon($event)"></app-my-pokemon>
+</div>
