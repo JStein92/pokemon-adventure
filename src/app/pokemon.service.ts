@@ -19,6 +19,20 @@ constructor(private http: Http, private database: AngularFireDatabase) {
   this.habitats = database.list('habitats');
 }
 
+healPokemon(){
+  let allPokemon;
+  this.getAllPokemon().subscribe(allPokemonFromFirebase => {
+    allPokemon = (allPokemonFromFirebase);
+
+  })
+  for (let i = 0; i < allPokemon.length; i++) {
+      allPokemon[i].currentHP = allPokemon[i].maxHP;
+      let pokemonEntryInFirebase = this.getPokemonById(allPokemon[i]);
+      pokemonEntryInFirebase.update({currentHP:allPokemon[i].currentHP});
+  }
+
+}
+
 deleteAllPokemon(){
   let allPokemon = this.database.object('allPokemon/');
   allPokemon.remove();

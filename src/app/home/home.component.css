@@ -28,6 +28,21 @@ background-position: center;
 .backToLogin{
   margin-top: 20px;
 }
+
+
+#anonymousIcon{
+	height: 48px;
+}
+img#anonymousIcon:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+a:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+	color: green;
+}
 .delete{
   bottom: 0;
   position: fixed;

@@ -1,0 +1,72 @@
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <!-- <div class="navbar-header">
+       <a class="navbar-brand" routerLink="battle">Battle</a>
+        <a class="navbar-brand" routerLink="getPokemon">get-pokemon</a>
+     </div> -->
+     <ul class="nav navbar-nav navbar-right">
+       <li *ngIf="user">
+         <!-- <a>{{userName}}</a> <br>
+         <span class="badge badge-success">{{(currentUser | async).pokemons.length}}</span> -->
+         <a (click)="googleLogout()">Log out  <img id="googleIcon" src="./../assets/images/user.jpg" alt="user"></a>
+          <!-- <a (click)="startPlaying()"> Start Playing </a> -->
+       </li>
+     </ul>
+   </div>
+ </nav>
+
+
+<button *ngIf="user" type="button" name="button" ><h1 routerLink = "/map" >Map</h1></button>
+
+
+
+ <div *ngIf="!user" class="card container" style="width: 20rem;">
+   <div>
+     <img class="card-img-top" src="./../assets/images/pokemon.jpg" alt="pokemon">
+     <br><br><br>
+   </div>
+   <div class="card-block ">
+     <div class="form-group">
+       <label>Email</label>
+       <input class="form-control"  #email type="email">
+     </div>
+     <div class="form-group">
+       <label>Password</label>
+       <input class="form-control" #password type="password">
+     </div>
+     <div class="form-group">
+       <button id="btnSignup" (click)="signUp(email.value, password.value)" class="btn btn-primary">Sign Up</button>
+     </div>
+     <div class="form-group">
+       <button id="btnSignIn" (click)="signIn(email.value, password.value)"  class="btn btn-default">Sign In</button>
+     </div>
+     <div *ngIf ="!user">
+       <a (click)="googleLogin()">  <img id="googleIcon" src="./../assets/images/googleIcon.png" alt="googleIcon"> Log in with Google</a>
+       <br><br>
+     </div>
+     <div *ngIf ="!user">
+       <a (click)="anonymousLogin()">  <img id="anonymousIcon" src="./../assets/images/anonymous.jpg" alt="anonimousIcon">Anonymous Login</a>
+       <br><br><br>
+     </div>
+
+   </div>
+ </div>
+
+ <!-- <div *ngIf="isLoggedIn && notPlayedBefore" class="card container" style="width: 20rem;">
+   <div>
+     <img class="card-img-top" src="./../assets/images/pokemon.jpg" alt="pokemon">
+     <br><br><br>
+   </div>
+   <div class="card-block ">
+     <div class="form-group">
+       <label>Name</label>
+       <input  #name>
+     </div>
+      <div>
+       <button (click)="startCreatingPlayer(name.value); name.value='';" class="btn btn-primary"> Submit </button>
+       <br><br><br>
+     </div>
+   </div>
+ </div> -->
+
+ <!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,38 @@
+a:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+	color: green;
+}
+#googleIcon{
+	height: 48px;
+}
+img#googleIcon:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+#anonymousIcon{
+	height: 48px;
+}
+img#anonymousIcon:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+#btnSignIn, #btnSignup{
+	width: 100%;
+}
+
+#btnSignIn:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+#btnSignup:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+/*
+span.badge{
+	color: #ca3f3f;
+}*/
