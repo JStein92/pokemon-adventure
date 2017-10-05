@@ -29,6 +29,7 @@ background-position: center;
   margin-top: 20px;
 }
 
+
 #anonymousIcon{
 	height: 48px;
 }
@@ -41,4 +42,11 @@ a:hover{
 	cursor: pointer;
 	transform: scale(1.1);
 	color: green;
+}
+.delete{
+  bottom: 0;
+  position: fixed;
+}
+.btn:hover{
+  cursor: pointer;
 }

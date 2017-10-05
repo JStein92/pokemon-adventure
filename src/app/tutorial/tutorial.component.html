@@ -1,0 +1,60 @@
+<body>
+  <div class="jumbotron">
+    <div class="row">
+
+      <div class="col-md-4 oak">
+        <img src="http://33.media.tumblr.com/tumblr_ljypvr4kPz1qg0dcvo1_500.gif" alt="">
+
+      </div>
+      <div class="col-md-8">
+        <div class="oakText">
+          <p *ngIf="line===0">Ah! I see you are new here! Welcome to Pokemon Adventure.</p>
+          <p *ngIf="line===1">There is a lot to learn on your journey to become a Pokemon master!</p>
+          <p *ngIf="line===2">First, select your starter Pokemon!</p>
+          <p *ngIf="line===3">Great choice! You can view your pokemon below. Although you can only have 6 equipped at a time, you can choose which ones to equip from the Map screen.</p>
+          <div *ngIf="line===4">
+            <p >On the map, you can select where to travel.  </p>
+            <img class="map" src="../assets/images/map.jpg" alt="">
+          </div>
+
+          <p *ngIf="line===5">Once you travel to a location, you can SEARCH for Pokemon, and fight them!</p>
+          <p *ngIf="line===6">Good luck out there!</p>
+
+        </div>
+        <button *ngIf="line<=1 || line>=3" type="button" name="button" class="btn btn-warning" (click)="next()">Next</button>
+
+        <div class="row">
+          <div class="starters" *ngIf="line===2">
+            <div class="card-deck" >
+              <div class="card starter">
+                <img class="card-img-top starter" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Card image cap">
+                <div class="card-block">
+                  <button (click)="squirtle()" class="btn btn-primary">Squirtle</button>
+                </div>
+              </div>
+              <div class="card starter">
+                <img class="card-img-top starter" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap">
+                <div class="card-block">
+                  <button  (click)="bulbasaur()" class="btn btn-success">Bulbasaur</button>
+                </div>
+              </div>
+              <div class="card starter">
+                <img class="card-img-top starter" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Card image cap">
+                <div class="card-block">
+                  <button (click)="charmander()" class="btn btn-danger">Charmander</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div *ngIf="line===3">
+    <app-my-pokemon></app-my-pokemon>
+  </div>
+</body>

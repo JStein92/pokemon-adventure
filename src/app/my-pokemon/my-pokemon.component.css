@@ -3,29 +3,35 @@
   background-color: #d1d1d1;
 
   z-index: -1;
-  padding-top: 1%;
-  border-radius: 20px;
+
 }
 .card{
   display: inline-block;
   padding: 15px;
   margin: 5px;
-  width: 150px;
+  width: 200px;
   top: 0;
   background-color:#ededed;
   height: 310px;
 }
+.card-title{
+  text-align: center;
+  font-size: 1em; 
+}
 .card:hover{
-cursor: pointer;
+  border: 1px solid grey;
+}
+.trainerHeader{
+  background-color: silver;
+
+  text-align: center;
 }
 .card-img-top{
   height: 130px;
 }
 .trainerImg{
-  background-color: silver;
-  border-radius: 30%;
-  margin: 20px;
-  width: 200px;
+  height: 150px;
+  padding-left: 30px;
 }
 .card-equipped{
   max-width: 180px;
@@ -36,8 +42,15 @@ cursor: pointer;
 .notEquipped{
   background-color: #e2ffe2;
 }
+.isEquipped:hover{
+    cursor: pointer;
+}
+.notEquipped:hover{
+    cursor: pointer;
+}
 .equipped-header{
-  font-size: 1.5em;
+  font-size: 1em;
+  margin: 10px;
 }
 .show-all-btn{
   font-size: 2em;
@@ -47,13 +60,15 @@ cursor: pointer;
 .btns{
   padding: 5px;
 }
+.btn:hover{
+  cursor: pointer;
+}
+.swap{
+
+}
 
 h1 {
 
   text-align: center;
   padding: 10px;
-}
-
-.buffer {
-  background-color: purple;
 }

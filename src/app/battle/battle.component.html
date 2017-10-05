@@ -1,7 +1,7 @@
 <div *ngIf="!battleEnded" class="container">
   <div class="d-flex justify-content-center">
 
-    <div class="p-5">
+    <div [@flyInFromSide]="'in'" class="p-5">
       <div class="card">
         <div class="card-block">
           <h3 class="card-title">{{battlingPokemon?.name}}</h3>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-  <div class="p-5">
+  <div [@flyInFromRightSide]="'in'" class="p-5">
     <div class="card">
       <div class="card-block">
         <h3 class="card-title">{{opponent?.name}}</h3>
