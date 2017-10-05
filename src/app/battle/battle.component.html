@@ -30,6 +30,14 @@
           <div *ngIf="battlingPokemon.activeMoves.length > 2" class="p-2"><button (click)="battle(2)">{{battlingPokemon.activeMoves[2].name}}</button></div>
           <div *ngIf="battlingPokemon.activeMoves.length > 3" class="p-2"><button (click)="battle(3)">{{battlingPokemon.activeMoves[3].name}}</button></div>
         </div>
+        <div class="d flex-box justify-content-center center-log">
+          <div class="card">
+            <div class="card-block">
+              <div>LOG</div>
+              <div class="player-log">{{playerLog}}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -58,9 +66,13 @@
         <div class="p-2"><button (click)="catchPokemon()">Catch</button></div>
         <div class="p-2"><a routerLink="/map"><button>Flee</button></a></div>
       </div>
-      <div class="d-flex justify-content-center">
-        <div *ngIf="opponent.activeMoves.length > 2" class="p-2"><button>{{opponent.activeMoves[2].name}}</button></div>
-        <div *ngIf="opponent.activeMoves.length > 3" class="p-2"><button>{{opponent.activeMoves[3].name}}</button></div>
+      <div class="d flex-box justify-content-center center-log">
+        <div class="card">
+          <div class="card-block">
+            <div>LOG</div>
+            <div class="opponent-log">{{opponentLog}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -68,6 +80,8 @@
 
 </div>
 </div>
+
+
 
 <div *ngIf="(battleWon || !battleWon) && !battling">
   <h1 id="end-battle">The Battle Is Over!</h1>
@@ -109,8 +123,6 @@
       </div>
     </div>
   </div>
-
-
 
 </div>
 

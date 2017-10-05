@@ -79,7 +79,7 @@ stopSong(){
     pokemonEntryInFirebase.update({equipped:true});
   }
 
-  updateStats(pokemon: Pokemon) {
+  updateStats(pokemon) {
     let pokemonEntryInFirebase = this.getPokemonById(pokemon);
     pokemonEntryInFirebase.update({currentHP:pokemon.currentHP});
   }

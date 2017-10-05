@@ -59,6 +59,8 @@ export class BattleComponent implements OnInit {
 
   @Input() opponent: Pokemon;
 
+  public playerLog: string;
+  public opponentLog: string;
   public player: Player;
   public equippedPokemon = [];
   public battlingPokemon: Pokemon;
@@ -69,9 +71,23 @@ export class BattleComponent implements OnInit {
 
   constructor(public pokemonService: PokemonService) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
-    this.battlingPokemon = this.equippedPokemon[0];
+
     this.battling = true;
     this.battleWon = null;
+    this.battlingPokemon = this.equippedPokemon[0];
+
+    if(this.checkAllEquippedPokemonUnconscious()) {
+      this.battlingPokemon = this.equippedPokemon[0];
+      this.battling = false;
+      this.battleWon = false;
+    } else {
+      for (let i = 0; i < this.equippedPokemon.length; i++) {
+        if (this.equippedPokemon[i].currentHP > 0) {
+          this.battlingPokemon = this.equippedPokemon[i];
+          break;
+        }
+      }
+    }
   }
 
   ngOnInit() {
@@ -79,6 +95,7 @@ export class BattleComponent implements OnInit {
 
   battle(selection: number) {
     this.turn++;
+    console.log(this.equippedPokemon);
 
     if(this.isPlayerFirstToGo()) {
       this.playerAttack(selection);
@@ -89,6 +106,8 @@ export class BattleComponent implements OnInit {
             // the false argument denotes that the player lost
             this.battleOver(false);
           } else {
+            alert("UPPER BLOCK");
+            console.log("number of equipped pokemon: " + this.equippedPokemon.length);
             alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
         }
@@ -109,6 +128,8 @@ export class BattleComponent implements OnInit {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
         } else {
+          alert("LOWER BLOCK");
+          console.log("number of equipped pokemon: " + this.equippedPokemon.length);
           alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
       }
@@ -134,7 +155,7 @@ export class BattleComponent implements OnInit {
       this.opponent.currentHP = 0;
     }
 
-    console.log(this.battlingPokemon.name + ' used ' + this.battlingPokemon.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.opponent.name + '! ' + this.opponent.name + ' has ' + this.opponent.currentHP + ' hp left.');
+    this.playerLog = this.battlingPokemon.name + ' used ' + this.battlingPokemon.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.opponent.name + '!';
   }
 
   opponentAttack(selection) {
@@ -150,7 +171,7 @@ export class BattleComponent implements OnInit {
 
     this.pokemonService.updateStats(this.battlingPokemon);
 
-    console.log(this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '! ' + this.battlingPokemon.name + ' has ' + this.battlingPokemon.currentHP + ' hp left.');
+    this.opponentLog = this.opponent.name + ' used ' + this.opponent.activeMoves[selection]["name"] + ' and did ' + damageDealt + ' damage to ' + this.battlingPokemon.name + '!';
   }
 
   switchPokemon(pokemonToSwitch: Pokemon) {

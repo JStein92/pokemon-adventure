@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 amountOfPokemon;
   ngOnInit() {
 
-    this.pokemonService.playSong("../assets/music/pallete-town.mp3");
+    this.pokemonService.playSong("../assets/music/opening.mp3");
 
   }
   deleteAllPokemon(){

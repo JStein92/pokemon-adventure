@@ -54,3 +54,10 @@ button:hover {
   padding: 0px;
   margin-bottom: 5px;
 }
+
+.player-log {
+  float: left;
+}
+.opponent-log {
+  float: right;
+}
