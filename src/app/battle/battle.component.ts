@@ -41,7 +41,7 @@ export class BattleComponent implements OnInit {
             // the false argument denotes that the player lost
             this.battleOver(false);
           } else {
-            alert('pick a new pokemon to battle!');
+            alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
           }
         }
       } else {
@@ -61,7 +61,7 @@ export class BattleComponent implements OnInit {
         if (this.checkAllEquippedPokemonUnconscious()) {
           this.battleOver(false);
         } else {
-          alert('Pick a new pokemon to battle!');
+          alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
       }
     }
