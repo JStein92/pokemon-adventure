@@ -56,7 +56,7 @@
         <!-- <div class="health">{{opponent?.currentHP}}/{{opponent?.maxHP}}</div> -->
 
         <div class="enemyProgress">
-          <div id="enemyProgressBar" [style.width.%]="(battlingPokemon?.currentHP/battlingPokemon?.maxHP)*100">
+          <div id="enemyProgressBar" [style.width.%]="(opponent?.currentHP/opponent?.maxHP)*100">
             {{opponent?.currentHP}}/{{opponent?.maxHP}}
           </div>
         </div>
@@ -109,13 +109,11 @@
           <div class="xp-gained">
             {{this.battlingPokemon.name}} gained {{opponent?.level * 5}} xp!
           </div>
-<<<<<<< HEAD
+
 
           <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div>
 
-=======
           <!-- <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div> -->
->>>>>>> 695c98c42653c733f6a7f2a9dd9c4a9dd65b82c8
           <div class="d-flex justify-content-between level-type">
             <div class="p-1">Lvl. {{battlingPokemon?.level}}</div>
             <div class="p-1"><span *ngFor="let type of battlingPokemon?.types" class="pokemon-type">{{type.type.name}} </span></div>
