@@ -14,11 +14,12 @@
 
           <div class="myProgress">
             <div id="myBar" [style.width.%]="(battlingPokemon?.currentHP/battlingPokemon?.maxHP)*100">
+              <div class="progress-text-health">
+                {{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}} hp
+              </div>
 
             </div>
-            <div class="progress-text">
-              {{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}} hp
-            </div>
+
           </div>
 
           <div class="d-flex justify-content-around stats">
@@ -82,7 +83,9 @@
 
         <div class="enemyProgress">
           <div id="enemyProgressBar" [style.width.%]="(opponent?.currentHP/opponent?.maxHP)*100">
-            {{opponent?.currentHP}}/{{opponent?.maxHP}} hp
+            <div class="progress-text-health">
+              {{opponent?.currentHP}}/{{opponent?.maxHP}} hp
+            </div>
           </div>
         </div>
 
@@ -154,9 +157,6 @@
                 <li class="level-gain-stats">{{this.battlingPokemon.name}} gained 2 defense!</li>
             </ul>
           </div>
-
-
-          <div class="health">{{battlingPokemon?.currentHP}}/{{battlingPokemon?.maxHP}}</div>
 
           <div class="progress xp-bar">
           <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(battlingPokemon?.currentLevelXP/battlingPokemon?.totalLevelXP)*100">

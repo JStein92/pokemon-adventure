@@ -81,7 +81,7 @@ button:hover {
 
 
 .myProgress {
-  width: 300px;
+  width: 100%;
   background-color: #bbe6a9;
 }
 
@@ -96,7 +96,7 @@ button:hover {
 
 
 .enemyProgress {
-  width: 300px;
+  width: 100%;
   background-color: #bbe6a9;
 }
 
@@ -122,9 +122,8 @@ button:hover {
   text-align: center;
   line-height: 20px; /* line-height should be equal to bar height */
   overflow: hidden;
-  width: 298px;
+  width: 100%;
   color: white;
-
 }
 
 .xp-bar {
@@ -142,4 +141,12 @@ ul {
 
 .level-gain-stats {
   font-size: .9em;
+}
+.progress-text-health {
+  position: absolute;
+  text-align: center;
+  line-height: 30px; /* line-height should be equal to bar height */
+  overflow: hidden;
+  width: 100%;
+  color: white;
 }
