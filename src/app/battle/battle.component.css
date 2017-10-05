@@ -66,6 +66,14 @@ button:hover {
    margin-top: 50px;
 }
 
+#end-battle-caught {
+  text-align: center;
+  font-size: 4em;
+  color: white;
+   text-shadow: 2px 2px 4px black;
+   margin-top: 50px;
+}
+
 .xp-gained {
   padding: 0px;
   margin-bottom: 5px;

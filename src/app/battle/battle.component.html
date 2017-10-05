@@ -103,7 +103,7 @@
         <div class="p-2"><button class="btn-block" (click)="catchPokemon()"><img class="pokeballImg" src="https://cdn.iconscout.com/public/images/icon/free/png-512/pokemon-pokeball-game-go-3d4d7b6a9453829b-512x512.png" alt="">Throw Pokeball</button></div>
       </div>
       <div *ngIf="opponent?.currentHP >= opponent?.maxHP/2"class="d-flex justify-content-center">
-        <div class="p-2"><button class="btn-block" (click)="catchPokemon()" alt="">Weaken to throw a Pokeball</button></div>
+        <div class="p-2"><button class="btn-block" alt="">Weaken to throw a Pokeball</button></div>
       </div>
       <div class="d flex-box justify-content-center center-log">
         <div class="card">
@@ -122,6 +122,10 @@
 <div *ngIf="(battleWon || !battleWon) && !battling">
   <h1 id="end-battle">The Battle Is Over!</h1>
 
+  <div *ngIf="pokemonCaught">
+    <h2 id="end-battle-caught">You caught {{opponent.name}}!</h2>
+  </div>
+
   <div class="d-flex justify-content-center">
 
     <div class="p-5">
@@ -133,6 +137,10 @@
           <div class="xp-gained">
             {{this.battlingPokemon.name}} gained {{opponent?.level * 5}} xp!
           </div>
+
+
+
+
 
           <div *ngIf="showLevelUp">
               <ul>

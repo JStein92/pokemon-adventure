@@ -70,6 +70,7 @@ export class BattleComponent implements OnInit {
   public battleWon: boolean;
   public battling: boolean;
   public showLevelUp: boolean;
+  public pokemonCaught: boolean;
 
   constructor(public pokemonService: PokemonService,private router: Router) {
     this.equippedPokemon = this.pokemonService.getEquippedPokemon();
@@ -241,6 +242,7 @@ backToMap(){
     } else {
       this.pokemonService.catchPokemon(this.opponent);
     }
+    this.pokemonCaught = true;
     this.battleOver(true);
   }
 
