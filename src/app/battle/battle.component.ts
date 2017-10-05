@@ -139,9 +139,15 @@ backToMap(){
           this.battleOver(false);
         } else {
           //alert("LOWER BLOCK");
-          alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
+          // alert(this.battlingPokemon.name + ' has fainted! Pick a new pokemon to battle!');
         }
       }
+    }
+  }
+
+  checkFainted(){
+    if (this.battlingPokemon.currentHP===0){
+      return "btn-danger"
     }
   }
 

@@ -102,6 +102,7 @@ export class MyPokemonComponent implements OnInit {
 
   }
 
+
   showAllPokemon(){
     if (this.showAllPokemonBool === false){
       this.showAllPokemonBool  = true;

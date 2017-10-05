@@ -6,7 +6,9 @@
 
 }
 
-
+.bgFainted{
+  background-color: red;
+}
 
 .card{
   display: inline-block;
