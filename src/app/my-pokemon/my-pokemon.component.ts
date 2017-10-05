@@ -64,6 +64,10 @@ export class MyPokemonComponent implements OnInit {
     })
   }
 
+  healPokemon(){
+    this.pokemonService.healPokemon();
+  }
+
   populateEquippedPokemonArray(){
     this.equippedPokemon=[];
     for (let i = 0; i < this.allPokemon.length; i++) {

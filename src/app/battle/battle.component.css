@@ -56,6 +56,7 @@ button:hover {
   margin-bottom: 5px;
 }
 
+
 .myProgress {
   width: 300px;
   background-color: #bbe6a9;
@@ -83,4 +84,12 @@ button:hover {
   line-height: 30px;
   color: white;
   max-width: 100%;
+}
+
+.player-log {
+  float: left;
+}
+.opponent-log {
+  float: right;
+
 }

@@ -1,5 +1,5 @@
 
-//Ben's Firebase Keys
+// Ben's Firebase Keys
 // export var masterFirebaseConfig = {
 //   apiKey: "AIzaSyD-Uss1YSk2wCnmXkPcRORPNuIs8LabMKE",
 //   authDomain: "pokemon-adventure-7be5c.firebaseapp.com",

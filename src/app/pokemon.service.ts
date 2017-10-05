@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
+import { Pokemon } from './pokemon.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
@@ -16,6 +17,20 @@ audio = new Audio();
 constructor(private http: Http, private database: AngularFireDatabase) {
   this.allPokemon = database.list('allPokemon');
   this.habitats = database.list('habitats');
+}
+
+healPokemon(){
+  let allPokemon;
+  this.getAllPokemon().subscribe(allPokemonFromFirebase => {
+    allPokemon = (allPokemonFromFirebase);
+
+  })
+  for (let i = 0; i < allPokemon.length; i++) {
+      allPokemon[i].currentHP = allPokemon[i].maxHP;
+      let pokemonEntryInFirebase = this.getPokemonById(allPokemon[i]);
+      pokemonEntryInFirebase.update({currentHP:allPokemon[i].currentHP});
+  }
+
 }
 
 deleteAllPokemon(){
@@ -76,6 +91,11 @@ stopSong(){
   equipPokemon(pokemonToEquip){
     let pokemonEntryInFirebase = this.getPokemonById(pokemonToEquip);
     pokemonEntryInFirebase.update({equipped:true});
+  }
+
+  updateStats(pokemon) {
+    let pokemonEntryInFirebase = this.getPokemonById(pokemon);
+    pokemonEntryInFirebase.update({currentHP:pokemon.currentHP});
   }
 
   getHabitatById(habitatId) {
