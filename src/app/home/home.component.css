@@ -44,8 +44,7 @@ a:hover{
 	color: green;
 }
 .delete{
-  bottom: 0;
-  position: fixed;
+margin: 20px;
 }
 .btn:hover{
   cursor: pointer;

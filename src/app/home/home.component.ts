@@ -19,23 +19,34 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+        this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
+      this.amountOfPokemon = (allPokemonFromFirebase.length);
+        });
+
     this.pokemonService.playSong("../assets/music/opening.mp3");
 
   }
   deleteAllPokemon(){
-    this.pokemonService.deleteAllPokemon();
+      var r = confirm("Are you sure you want to clear the database of Pokemon?")
+      if (r){
+          this.pokemonService.deleteAllPokemon();
+          alert('Pokemon cleared')
+      } else {
+
+      }
+
   }
   goToGame(){
     this.pokemonService.stopSong();
 
-    this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
-    this.amountOfPokemon = (allPokemonFromFirebase.length);
-    })
+
+
     if (this.amountOfPokemon === 0){
       this.router.navigate(['tutorial'])
     } else {
         this.router.navigate(['map']);
     }
+
   }
 
   googleLogout() {

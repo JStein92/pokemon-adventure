@@ -1,5 +1,6 @@
 body {
   font-size: 100%;
+  background-color: #e2f9ff;
 }
 
 img {
@@ -7,11 +8,16 @@ img {
 }
 .home{
   height: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .absoluteContainer {
   position: absolute;
-  width: 100%;
+  width: 60%;
+  margin-left: 20%;
+
 }
 .btn:hover{
   cursor: pointer;
@@ -20,17 +26,17 @@ img {
   position: relative;
   float: left;
   z-index: 1;
-  width: 100%;
+  width: 60%;
   padding-left: 0px;
   max-height: 1000px;
-
+  margin-left: 20%;
 }
 
 h1 {
-  font-size: 5vh;
-  font-size: 5.5vw;
+  font-size: 3vh;
+  font-size: 3.2vw;
   font-family: "Berkshire-Swash";
-  color: #f2ded5;
+  color:white;
   text-shadow: 3px 5px 3px black;
   padding-left: 20px;
 }

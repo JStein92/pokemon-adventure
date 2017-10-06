@@ -55,6 +55,7 @@ export class HabitatComponent implements OnInit {
   equippedPokemon = [];
   allPokemon=[];
   difficulty;
+  isSearching = false;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
@@ -162,6 +163,7 @@ export class HabitatComponent implements OnInit {
   }
 
   searchHabitat(habitatToSearch, difficulty){
+    this.isSearching=true;
     let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
     //console.log(habitatToSearch.pokemon_species[randomPokemon].name)
     this.apiURL = habitatToSearch.pokemon_species[randomPokemon].url;

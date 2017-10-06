@@ -107,7 +107,7 @@ backToMap(){
   }
   battle(selection: number) {
     this.turn++;
-    console.log("number of equipped pokemon: " + this.equippedPokemon.length);
+    //console.log("number of equipped pokemon: " + this.equippedPokemon.length);
     // this.equippedPokemon = this.pokemonService.getEquippedPokemon();
 
     if(this.isPlayerFirstToGo()) {
@@ -163,8 +163,8 @@ backToMap(){
 
   playerAttack(selection: number) {
     let damageDealt = this.battlingPokemon.attack - this.opponent.defense;
-    if (damageDealt <= 0) {
-      damageDealt = 1;
+    if (damageDealt <= 5) {
+      damageDealt = 5;
     }
 
     this.opponent.currentHP -= damageDealt;
@@ -177,8 +177,8 @@ backToMap(){
 
   opponentAttack(selection) {
     let damageDealt = this.opponent.attack - this.battlingPokemon.defense;
-    if (damageDealt <= 0) {
-      damageDealt = 1;
+    if (damageDealt <= 5) {
+      damageDealt = 5;
     }
 
     this.battlingPokemon.currentHP -= damageDealt;

@@ -20,7 +20,12 @@ body{
 }
 .btn{
   margin: 10px;
+  font-size: 1.5em;
 }
 .map{
   width: 400px;
+}
+.searching{
+  color: green;
+
 }

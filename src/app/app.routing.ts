@@ -15,7 +15,7 @@ import { TutorialComponent } from './tutorial/tutorial.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: HomeComponent
 
   },
   {

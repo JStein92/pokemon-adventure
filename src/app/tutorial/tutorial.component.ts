@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./tutorial.component.css'],
     providers: [PokemonService]
 })
+
 export class TutorialComponent implements OnInit {
+  searching = false;
   line = 0;
   apiUrl;
   constructor(private pokemonService: PokemonService,private router: Router) { }
@@ -44,16 +46,16 @@ export class TutorialComponent implements OnInit {
     let currentLevelXP = 0;
     let totalLevelXP = level * 20;
     let totalAccruedXP= 0;
-    let currentHP = pokemonToBuild.stats[5].base_stat + (level * 10);
-    let maxHP = pokemonToBuild.stats[5].base_stat + (level * 10);
-    let speed = pokemonToBuild.stats[0].base_stat + level + 5;
-    let attack = pokemonToBuild.stats[4].base_stat + level + 5;
-    let defense = pokemonToBuild.stats[3].base_stat + level + 5;
+    let currentHP = pokemonToBuild.stats[5].base_stat + (level * 30);
+    let maxHP = pokemonToBuild.stats[5].base_stat + (level * 30);
+    let speed = pokemonToBuild.stats[0].base_stat + level + 15;
+    let attack = pokemonToBuild.stats[4].base_stat + level + 15;
+    let defense = pokemonToBuild.stats[3].base_stat + level + 15;
     let allMoves = pokemonToBuild.moves;
     let equipped=true;
 
     pokemonToBuild = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
-    console.log(pokemonToBuild);
+  //  console.log(pokemonToBuild);
 
 
     this.pokemonService.catchPokemon(pokemonToBuild);
@@ -77,6 +79,7 @@ export class TutorialComponent implements OnInit {
 
 
   apiCall(){
+    this.searching=true;
     this.pokemonService.getData(this.apiUrl).subscribe(
       returnedJSON => {
           this.returnedData = returnedJSON;

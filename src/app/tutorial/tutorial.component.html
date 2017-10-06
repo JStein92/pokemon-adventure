@@ -14,7 +14,6 @@
           <p *ngIf="line===3">Great choice! You can view your pokemon below. Although you can only have 6 equipped at a time, you can choose which ones to equip from the Map screen.</p>
           <div *ngIf="line===4">
             <p >On the map, you can select where to travel.  </p>
-            <img class="map" src="../assets/images/map.jpg" alt="">
           </div>
 
           <p *ngIf="line===5">Once you travel to a location, you can SEARCH for Pokemon, and fight them!</p>
@@ -23,7 +22,11 @@
         </div>
         <button *ngIf="line<=1 || line>=3" type="button" name="button" class="btn btn-warning" (click)="next()">Next</button>
 
-        <div class="row">
+      <div *ngIf="searching && line===2">
+        <h1 class="searching">Hatching your Pokemon...</h1>
+      </div>
+
+        <div class="row" *ngIf="!searching">
           <div class="starters" *ngIf="line===2">
             <div class="card-deck" >
               <div class="card starter">

@@ -2,7 +2,7 @@
 
 #### Angular2 Team Week Project
 
-##### By Jonathan Stein, Robert Murray, Ben Budinger, Michael Woldemedihin
+##### By Jonathan Stein, Robert Murray, Ben Budinger, Michael Woldemedihin, and Kim Schultz
 
 ## Description
 
