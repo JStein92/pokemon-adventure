@@ -48,7 +48,7 @@ import {
 
 export class MyPokemonComponent implements OnInit {
   @Input() battling: boolean;
-  @Output() switchPokemonSender = new EventEmitter();
+
   @Output() healPokemonSender = new EventEmitter();
   allPokemon = null;
   equippedPokemon = [];
@@ -65,7 +65,7 @@ export class MyPokemonComponent implements OnInit {
     })
   }
 
-  healPokemon(){
+  healPokemon(){ //send action up to MapComponent 
     this.pokemonService.healPokemon();
     this.healPokemonSender.emit();
   }
@@ -113,8 +113,5 @@ export class MyPokemonComponent implements OnInit {
     }
   }
 
-  switchPokemon(pokemonToSwitch: Pokemon) {
-    this.switchPokemonSender.emit(pokemonToSwitch);
-  ///  console.log(pokemonToSwitch);
-  }
+
 }

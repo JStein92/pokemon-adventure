@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private authService: AuthenticationService, private router: Router) { }
   amountOfPokemon;
 
-  ngOnInit() {
+  ngOnInit() { //get amountOfPokemon to check if user needs to go through tutorial
 
         this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
       this.amountOfPokemon = (allPokemonFromFirebase.length);
@@ -38,8 +38,6 @@ export class HomeComponent implements OnInit {
   }
   goToGame(){
     this.pokemonService.stopSong();
-
-
 
     if (this.amountOfPokemon === 0){
       this.router.navigate(['tutorial'])
