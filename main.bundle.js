@@ -396,7 +396,7 @@ var BattleComponent = (function () {
         }
     }
     BattleComponent.prototype.ngOnInit = function () {
-        this.pokemonService.playSong("../assets/music/battle.mp3");
+        this.pokemonService.playSong("./assets/music/battle.mp3");
     };
     BattleComponent.prototype.backToMap = function () {
         this.stopSong();
@@ -496,7 +496,7 @@ var BattleComponent = (function () {
     BattleComponent.prototype.battleOver = function (victor) {
         this.battling = false;
         this.stopSong();
-        this.pokemonService.playSong("../assets/music/victory.mp3");
+        this.pokemonService.playSong("./assets/music/victory.mp3");
         if (victor) {
             this.battleWon = true;
             this.battlingPokemon.currentLevelXP += this.opponent.level * 5;
@@ -671,31 +671,31 @@ var HabitatComponent = (function () {
             _this.populateEquippedPokemonArray();
         });
         if (this.habitatId === "1") {
-            this.pokemonService.playSong("../assets/music/cave.mp3");
+            this.pokemonService.playSong("./assets/music/cave.mp3");
         }
         else if (this.habitatId === "2") {
-            this.pokemonService.playSong("../assets/music/habitat.mp3");
+            this.pokemonService.playSong("./assets/music/habitat.mp3");
         }
         else if (this.habitatId === "3") {
-            this.pokemonService.playSong("../assets/music/grassland.mp3");
+            this.pokemonService.playSong("./assets/music/grassland.mp3");
         }
         else if (this.habitatId === "4") {
-            this.pokemonService.playSong("../assets/music/mountain.mp3");
+            this.pokemonService.playSong("./assets/music/mountain.mp3");
         }
         else if (this.habitatId === "5") {
-            this.pokemonService.playSong("../assets/music/rare.mp3");
+            this.pokemonService.playSong("./assets/music/rare.mp3");
         }
         else if (this.habitatId === "6") {
-            this.pokemonService.playSong("../assets/music/rough-terrain.mp3");
+            this.pokemonService.playSong("./assets/music/rough-terrain.mp3");
         }
         else if (this.habitatId === "7") {
-            this.pokemonService.playSong("../assets/music/sea.mp3");
+            this.pokemonService.playSong("./assets/music/sea.mp3");
         }
         else if (this.habitatId === "8") {
-            this.pokemonService.playSong("../assets/music/urban.mp3");
+            this.pokemonService.playSong("./assets/music/urban.mp3");
         }
         else if (this.habitatId === "9") {
-            this.pokemonService.playSong("../assets/music/water-side.mp3");
+            this.pokemonService.playSong("./assets/music/water-side.mp3");
         }
     };
     HabitatComponent.prototype.populateEquippedPokemonArray = function () {
@@ -821,7 +821,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".jumbotron{\r\n  background-image: url(\"/pokemon-adventure/../assets/images/pokeball_bg.jpg\");\r\n  background-size: cover ;\r\npadding-bottom: 800px;\r\nbackground-repeat: no-repeat;\r\ntext-align: center;\r\nbackground-position: center;\r\n}\r\n.title{\r\n  letter-spacing: 5px;\r\n  color: white;\r\n   text-shadow: 2px 2px 4px black;\r\n   font-size: 6em;\r\n\r\n}\r\n.nav{\r\n  text-align: center;\r\n\r\n}\r\n.btnplay{\r\n  margin-top: 100px;\r\n  font-size: 2em;\r\n}\r\n.credits{\r\n  bottom: 0;\r\n  position: fixed;\r\n}\r\n.backToLogin{\r\n  margin-top: 20px;\r\n}\r\n\r\n\r\n#anonymousIcon{\r\n\theight: 48px;\r\n}\r\nimg#anonymousIcon:hover{\r\n\tcursor: pointer;\r\n\t-webkit-transform: scale(1.1);\r\n\t        transform: scale(1.1);\r\n}\r\n\r\na:hover{\r\n\tcursor: pointer;\r\n\t-webkit-transform: scale(1.1);\r\n\t        transform: scale(1.1);\r\n\tcolor: green;\r\n}\r\n.delete{\r\nmargin: 20px;\r\n}\r\n.btn:hover{\r\n  cursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, ".jumbotron{\r\n  background-image: url(\"/pokemon-adventure/./assets/images/pokeball_bg.jpg\");\r\n  background-size: cover ;\r\n  padding-bottom: 800px;\r\n  background-repeat: no-repeat;\r\n  text-align: center;\r\n  background-position: center;\r\n}\r\n.title{\r\n  letter-spacing: 5px;\r\n  color: white;\r\n   text-shadow: 2px 2px 4px black;\r\n   font-size: 6em;\r\n\r\n}\r\n.nav{\r\n  text-align: center;\r\n\r\n}\r\n.btnplay{\r\n  margin-top: 100px;\r\n  font-size: 2em;\r\n}\r\n.credits{\r\n  bottom: 0;\r\n  position: fixed;\r\n}\r\n.backToLogin{\r\n  margin-top: 20px;\r\n}\r\n\r\n\r\n#anonymousIcon{\r\n\theight: 48px;\r\n}\r\nimg#anonymousIcon:hover{\r\n\tcursor: pointer;\r\n\t-webkit-transform: scale(1.1);\r\n\t        transform: scale(1.1);\r\n}\r\n\r\na:hover{\r\n\tcursor: pointer;\r\n\t-webkit-transform: scale(1.1);\r\n\t        transform: scale(1.1);\r\n\tcolor: green;\r\n}\r\n.delete{\r\nmargin: 20px;\r\n}\r\n.btn:hover{\r\n  cursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 
@@ -871,7 +871,7 @@ var HomeComponent = (function () {
         this.pokemonService.getAllPokemon().subscribe(function (allPokemonFromFirebase) {
             _this.amountOfPokemon = (allPokemonFromFirebase.length);
         });
-        this.pokemonService.playSong("../assets/music/opening.mp3");
+        this.pokemonService.playSong("./assets/music/opening.mp3");
     };
     HomeComponent.prototype.deleteAllPokemon = function () {
         var r = confirm("Are you sure you want to clear the database of Pokemon?");
@@ -1060,7 +1060,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"map-face\">\r\n  <div class=\"absoluteContainer\">\r\n    <img src=\"../assets/images/map.jpg\" alt=\"\">\r\n    <div *ngIf=\"needHealing\" class=\"d-flex justify-content-center needHealing\">\r\n      <h2>Heal your pokemon!</h2>\r\n    </div>\r\n    <div class=\"app-my-pokemon\">\r\n\r\n      <app-my-pokemon (healPokemonSender) = \"healedPokemon($event)\"></app-my-pokemon>\r\n\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"habitat\" *ngIf=\"habitats\">\r\n    <div class=\"row\">\r\n          <button type=\"button\" name=\"button\" class=\"btn btn-warning home\" (click)=\"stopSong()\" routerLink=\"/home\">Go Home</button>\r\n      <div class=\"col-md-6\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[4])\">{{habitats[4].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-1\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[5])\">{{habitats[5].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[8])\">{{habitats[8].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[2])\">{{habitats[2].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-9\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[7])\">{{habitats[7].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[3])\">{{habitats[3].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-5\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[0])\">{{habitats[0].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[1])\">{{habitats[1].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-1\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[6])\">{{habitats[6].name}}</h1>\r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>\r\n\r\n\r\n\r\n<!-- <div>\r\n  <div *ngFor=\"let habitat of habitats\" >\r\n    <h1 (click)=\"goToHabitat(habitat)\">{{habitat.name}}</h1>\r\n  </div>\r\n</div> -->\r\n"
+module.exports = "\r\n<div class=\"map-face\">\r\n  <div class=\"absoluteContainer\">\r\n    <img src=\"./assets/images/map.jpg\" alt=\"\">\r\n    <div *ngIf=\"needHealing\" class=\"d-flex justify-content-center needHealing\">\r\n      <h2>Heal your pokemon!</h2>\r\n    </div>\r\n    <div class=\"app-my-pokemon\">\r\n\r\n      <app-my-pokemon (healPokemonSender) = \"healedPokemon($event)\"></app-my-pokemon>\r\n\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"habitat\" *ngIf=\"habitats\">\r\n    <div class=\"row\">\r\n          <button type=\"button\" name=\"button\" class=\"btn btn-warning home\" (click)=\"stopSong()\" routerLink=\"/home\">Go Home</button>\r\n      <div class=\"col-md-6\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[4])\">{{habitats[4].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-1\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[5])\">{{habitats[5].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[8])\">{{habitats[8].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[2])\">{{habitats[2].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-9\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[7])\">{{habitats[7].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[3])\">{{habitats[3].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-5\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[0])\">{{habitats[0].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[1])\">{{habitats[1].name}}</h1>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-1\"></div>\r\n      <h1 (click)=\"goToHabitat(habitats[6])\">{{habitats[6].name}}</h1>\r\n    </div>\r\n  </div>\r\n\r\n\r\n</div>\r\n\r\n\r\n\r\n<!-- <div>\r\n  <div *ngFor=\"let habitat of habitats\" >\r\n    <h1 (click)=\"goToHabitat(habitat)\">{{habitat.name}}</h1>\r\n  </div>\r\n</div> -->\r\n"
 
 /***/ }),
 
@@ -1097,7 +1097,7 @@ var MapComponent = (function () {
             _this.habitats = (habitats);
             //console.log(this.habitats)
         });
-        this.pokemonService.playSong("../assets/music/map.mp3");
+        this.pokemonService.playSong("./assets/music/map.mp3");
     };
     MapComponent.prototype.healedPokemon = function () {
         this.needHealing = false;
@@ -1379,16 +1379,16 @@ var PokemonService = (function () {
         allPokemon.remove();
     };
     PokemonService.prototype.playSong = function (song) {
-        this.audio.pause();
-        this.audio.currentTime = 0;
-        this.audio.loop = true;
-        this.audio.src = song;
-        this.audio.load();
-        this.audio.play();
+        // this.audio.pause();
+        // this.audio.currentTime=0;
+        // this.audio.loop=true;
+        // this.audio.src = song;
+        // this.audio.load();
+        // this.audio.play();
     };
     PokemonService.prototype.stopSong = function () {
-        this.audio.pause();
-        this.audio.currentTime = 0;
+        // this.audio.pause();
+        // this.audio.currentTime=0;
     };
     PokemonService.prototype.getData = function (apiURL) {
         return this.http.get(apiURL)
@@ -1533,7 +1533,7 @@ var TutorialComponent = (function () {
         this.line = 0;
     }
     TutorialComponent.prototype.ngOnInit = function () {
-        this.pokemonService.playSong("../assets/music/tutorial.mp3");
+        this.pokemonService.playSong("./assets/music/tutorial.mp3");
     };
     TutorialComponent.prototype.next = function () {
         this.line++;
