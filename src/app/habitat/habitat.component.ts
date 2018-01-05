@@ -61,7 +61,7 @@ export class HabitatComponent implements OnInit {
     private location: Location,
     private pokemonService: PokemonService) { }
 
-  ngOnInit() {
+  ngOnInit() { // find habitat by ID and display it correctly
     this.route.params.forEach((urlParameters) => {
       this.habitatId = urlParameters['id'];
     });
@@ -69,13 +69,14 @@ export class HabitatComponent implements OnInit {
       this.habitatToDisplay = dataLastEmittedFromObserver;
     })
 
+    // get all pokemon to populate your equipped array
     this.pokemonService.getAllPokemon().subscribe(allPokemonFromFirebase => {
       this.allPokemon = (allPokemonFromFirebase);
       this.populateEquippedPokemonArray()
     })
 
-    if(this.habitatId==="1"){
-      this.pokemonService.playSong("./assets/music/cave.mp3");
+    if(this.habitatId==="1"){ //play appropriate song!
+      this.pokemonService.playSong("../assets/music/cave.mp3");
     } else if (this.habitatId==="2"){
       this.pokemonService.playSong("./assets/music/habitat.mp3");
     }else if (this.habitatId==="3"){
@@ -109,7 +110,7 @@ export class HabitatComponent implements OnInit {
     this.pokemonService.stopSong();
   }
 
-  buildPokemon(pokemonToBuild){
+  buildPokemon(pokemonToBuild){ //build a pokemon based on returned object from API call
 
     let activeMoves = [];
     let movesNumber = 2;
@@ -147,7 +148,7 @@ export class HabitatComponent implements OnInit {
 
   }
 
-  apiCall(){
+  apiCall(){ //call API to get appropriate pokemon from habitat, found by searchHabitat below
     this.pokemonService.getData(this.apiURL).subscribe(
       returnedJSON => {
           this.returnedData = returnedJSON;
@@ -162,7 +163,7 @@ export class HabitatComponent implements OnInit {
     );
   }
 
-  searchHabitat(habitatToSearch, difficulty){
+  searchHabitat(habitatToSearch, difficulty){ //search a habitat and get a random pokemon from its array of pokemon species, then assign apiURL to that pokemons URL, and call apiCall().
     this.isSearching=true;
     let randomPokemon = Math.floor(Math.random()*habitatToSearch.pokemon_species.length);
     //console.log(habitatToSearch.pokemon_species[randomPokemon].name)

@@ -33,7 +33,7 @@ healedPokemon(){
     this.pokemonService.stopSong();
   }
 
-  goToHabitat(clickedHabitat) {
+  goToHabitat(clickedHabitat) { //go to a habitat only if you have pokemon above 0HP. 
     this.needHealing=false;
     let allowed = false;
     this.pokemonService.stopSong();

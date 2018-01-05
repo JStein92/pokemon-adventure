@@ -19,7 +19,7 @@ export class TutorialComponent implements OnInit {
     this.pokemonService.playSong("./assets/music/tutorial.mp3");
 
   }
-  next(){
+  next(){ //tutorial dialogue display
     this.line++;
     if (this.line===7){
         this.pokemonService.stopSong();
@@ -28,12 +28,9 @@ export class TutorialComponent implements OnInit {
   }
 
   returnedData;
-  buildPokemon(pokemonToBuild){
-
+  buildPokemon(pokemonToBuild){ //builds tutorial pokemon
     let activeMoves = [];
     let movesNumber = 2;
-
-
 
     for(let i = 0; i < movesNumber; i++) {
       activeMoves[i] = pokemonToBuild.moves[Math.floor(Math.random()*(pokemonToBuild.moves.length))].move;
@@ -55,13 +52,8 @@ export class TutorialComponent implements OnInit {
     let equipped=true;
 
     pokemonToBuild = new Pokemon(name,sprites, types,level,currentLevelXP,totalLevelXP,totalAccruedXP,currentHP,maxHP,speed,attack,defense,activeMoves,allMoves,equipped);
-  //  console.log(pokemonToBuild);
-
 
     this.pokemonService.catchPokemon(pokemonToBuild);
-
-    //console.log(pokemonToBuild);
-
   }
 
   bulbasaur(){
@@ -76,7 +68,6 @@ export class TutorialComponent implements OnInit {
     this.apiUrl= "https://pokeapi.co/api/v2/pokemon/charmander/"
     this.apiCall();
   }
-
 
   apiCall(){
     this.searching=true;
