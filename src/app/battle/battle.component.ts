@@ -94,7 +94,7 @@ export class BattleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pokemonService.playSong("../assets/music/battle.mp3");
+    this.pokemonService.playSong("./assets/music/battle.mp3");
   }
 
 backToMap(){
@@ -204,7 +204,7 @@ backToMap(){
   battleOver(victor: boolean) {
     this.battling = false;
     this.stopSong();
-    this.pokemonService.playSong("../assets/music/victory.mp3");
+    this.pokemonService.playSong("./assets/music/victory.mp3");
 
     if(victor) {
       this.battleWon = true;

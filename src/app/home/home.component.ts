@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       this.amountOfPokemon = (allPokemonFromFirebase.length);
         });
 
-    this.pokemonService.playSong("../assets/music/opening.mp3");
+    this.pokemonService.playSong("./assets/music/opening.mp3");
 
   }
   deleteAllPokemon(){

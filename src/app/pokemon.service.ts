@@ -39,16 +39,16 @@ deleteAllPokemon(){
 }
 
 playSong(song){
-  this.audio.pause();
-  this.audio.currentTime=0;
-  this.audio.loop=true;
-  this.audio.src = song;
-  this.audio.load();
-  this.audio.play();
+  // this.audio.pause();
+  // this.audio.currentTime=0;
+  // this.audio.loop=true;
+  // this.audio.src = song;
+  // this.audio.load();
+  // this.audio.play();
 }
 stopSong(){
-  this.audio.pause();
-  this.audio.currentTime=0;
+  // this.audio.pause();
+  // this.audio.currentTime=0;
 }
 
   getData(apiURL) {

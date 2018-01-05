@@ -75,23 +75,23 @@ export class HabitatComponent implements OnInit {
     })
 
     if(this.habitatId==="1"){
-      this.pokemonService.playSong("../assets/music/cave.mp3");
+      this.pokemonService.playSong("./assets/music/cave.mp3");
     } else if (this.habitatId==="2"){
-      this.pokemonService.playSong("../assets/music/habitat.mp3");
+      this.pokemonService.playSong("./assets/music/habitat.mp3");
     }else if (this.habitatId==="3"){
-      this.pokemonService.playSong("../assets/music/grassland.mp3");
+      this.pokemonService.playSong("./assets/music/grassland.mp3");
     }else if (this.habitatId==="4"){
-      this.pokemonService.playSong("../assets/music/mountain.mp3");
+      this.pokemonService.playSong("./assets/music/mountain.mp3");
     }else if (this.habitatId==="5"){
-      this.pokemonService.playSong("../assets/music/rare.mp3");
+      this.pokemonService.playSong("./assets/music/rare.mp3");
     }else if (this.habitatId==="6"){
-      this.pokemonService.playSong("../assets/music/rough-terrain.mp3");
+      this.pokemonService.playSong("./assets/music/rough-terrain.mp3");
     }else if (this.habitatId==="7"){
-      this.pokemonService.playSong("../assets/music/sea.mp3");
+      this.pokemonService.playSong("./assets/music/sea.mp3");
     }else if (this.habitatId==="8"){
-      this.pokemonService.playSong("../assets/music/urban.mp3");
+      this.pokemonService.playSong("./assets/music/urban.mp3");
     }else if (this.habitatId==="9"){
-      this.pokemonService.playSong("../assets/music/water-side.mp3");
+      this.pokemonService.playSong("./assets/music/water-side.mp3");
     }
 
 

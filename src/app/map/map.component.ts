@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
       //console.log(this.habitats)
     })
 
-    this.pokemonService.playSong("../assets/music/map.mp3");
+    this.pokemonService.playSong("./assets/music/map.mp3");
   }
 healedPokemon(){
   this.needHealing=false;

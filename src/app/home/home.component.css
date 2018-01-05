@@ -1,10 +1,10 @@
 .jumbotron{
-  background-image: url("/../assets/images/pokeball_bg.jpg");
+  background-image: url("/./assets/images/pokeball_bg.jpg");
   background-size: cover ;
-padding-bottom: 800px;
-background-repeat: no-repeat;
-text-align: center;
-background-position: center;
+  padding-bottom: 800px;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-position: center;
 }
 .title{
   letter-spacing: 5px;
