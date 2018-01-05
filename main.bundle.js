@@ -272,7 +272,7 @@ var appRoutes = [
         component: __WEBPACK_IMPORTED_MODULE_5__tutorial_tutorial_component__["a" /* TutorialComponent */]
     }
 ];
-var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { useHash: true });
 //# sourceMappingURL=app.routing.js.map
 
 /***/ }),
@@ -617,7 +617,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/habitat/habitat.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"habitatToDisplay\">\r\n\r\n  <div *ngIf=\"habitatToDisplay.name==='cave'\">\r\n    <img src=\"https://i.redd.it/6axfm8uck3oy.png\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='forest'\">\r\n    <img src=\"https://i.ytimg.com/vi/Ic3ZdD5ko7k/maxresdefault.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='mountain'\">\r\n    <img src=\"http://i.imgur.com/MdNGOsU.png\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='grassland'\">\r\n    <img src=\"https://i.redd.it/tgrcdqrbfjwy.gif\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='rough-terrain'\">\r\n    <img src=\"https://steamuserimages-a.akamaihd.net/ugc/100603690261120555/3288949BD5D35B3BCFA9DE0B65FAADE54BBD701C/\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='sea'\">\r\n    <img src=\"http://wallup.net/wp-content/uploads/2016/05/26/356350-pixel_art-sea-beach-rocks-digital_art.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='urban'\">\r\n    <img src=\"https://orig00.deviantart.net/792a/f/2017/061/6/0/landscape_city_pixel_art_by_metalbrasier2x0-db0y5pj.gif\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='waters-edge'\">\r\n    <img src=\"http://wallup.net/wp-content/uploads/2016/03/10/341369-digital_art-pixel_art-pixels-Moon-horizon-blue-reflection-nature-sea-clouds-hills-mountains-night-stars-landscape.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='rare'\">\r\n    <img src=\"http://hexa.party/wp-content/uploads/2016/03/8-bit-Mountains.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n\r\n  <div *ngIf=\"isSearching &&!newPokemon\" >\r\n    <h1 class=\"searching\">Searching for Pokemon...</h1>\r\n  </div>\r\n\r\n  <div *ngIf=\"!isSearching\">\r\n    <div *ngIf=\"!newPokemon || !isSearching\">\r\n\r\n    <button type=\"button\" (click)=\"stopSong()\" routerLink=\"/map\" class=\"btn btn-warning back\">Back to map</button>\r\n\r\n    <h1 class=\"habitatName\" [@flyInFromTop]=\"'in'\">{{habitatToDisplay.name.toUpperCase()}} </h1>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\"type=\"button\" name=\"button\" class=\"searchEasy search btn btn-success\" (click)=\"searchHabitat(habitatToDisplay, 'easy')\">Search - Easy</button>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\" type=\"button\" name=\"button\" class=\"searchMedium search btn btn-warning\" (click)=\"searchHabitat(habitatToDisplay, 'medium')\">Search - Medium</button>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\" type=\"button\" name=\"button\" class=\"searchHard search btn btn-danger\" (click)=\"searchHabitat(habitatToDisplay, 'hard')\">Search - Hard</button>\r\n      </div>\r\n\r\n  </div>\r\n  </div>\r\n\r\n<div *ngIf=\"newPokemon\"><app-battle [opponent]=\"newPokemon\"></app-battle></div>\r\n"
+module.exports = "<div *ngIf=\"habitatToDisplay\">\r\n\r\n  <div *ngIf=\"habitatToDisplay.name==='cave'\">\r\n    <img src=\"../assets/images/cave.png\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='forest'\">\r\n<<<<<<< HEAD\r\n    <img src=\"https://i.ytimg.com/vi/Ic3ZdD5ko7k/maxresdefault.jpg\" alt=\"\" class=\"backgroundImage\">\r\n=======\r\n    <img src=\"../assets/images/forest.jpg\" alt=\"\" class=\"backgroundImage\">\r\n>>>>>>> ff097977d828c10cf114e4074dac1aa077e458e7\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='mountain'\">\r\n    <img src=\"../assets/images/mountain.png\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='grassland'\">\r\n    <img src=\"../assets/images/grassland.gif\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='rough-terrain'\">\r\n    <img src=\"../assets/images/rough-terrain.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='sea'\">\r\n    <img src=\"../assets/images/sea.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='urban'\">\r\n    <img src=\"../assets/images/urban.gif\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='waters-edge'\">\r\n    <img src=\"../assets/images/waters-edge.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n  <div *ngIf=\"habitatToDisplay.name==='rare'\">\r\n    <img src=\"../assets/images/rare.jpg\" alt=\"\" class=\"backgroundImage\">\r\n  </div>\r\n\r\n  <div *ngIf=\"isSearching &&!newPokemon\" >\r\n    <h1 class=\"searching\">Searching for Pokemon...</h1>\r\n  </div>\r\n\r\n  <div *ngIf=\"!isSearching\">\r\n    <div *ngIf=\"!newPokemon || !isSearching\">\r\n\r\n    <button type=\"button\" (click)=\"stopSong()\" routerLink=\"/map\" class=\"btn btn-warning back\">Back to map</button>\r\n\r\n    <h1 class=\"habitatName\" [@flyInFromTop]=\"'in'\">{{habitatToDisplay.name.toUpperCase()}} </h1>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\"type=\"button\" name=\"button\" class=\"searchEasy search btn btn-success\" (click)=\"searchHabitat(habitatToDisplay, 'easy')\">Search - Easy</button>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\" type=\"button\" name=\"button\" class=\"searchMedium search btn btn-warning\" (click)=\"searchHabitat(habitatToDisplay, 'medium')\">Search - Medium</button>\r\n\r\n    <button (click)=\"stopSong()\" [@flyInFromSide]=\"'in'\" type=\"button\" name=\"button\" class=\"searchHard search btn btn-danger\" (click)=\"searchHabitat(habitatToDisplay, 'hard')\">Search - Hard</button>\r\n      </div>\r\n\r\n  </div>\r\n  </div>\r\n\r\n<div *ngIf=\"newPokemon\"><app-battle [opponent]=\"newPokemon\"></app-battle></div>\r\n"
 
 /***/ }),
 
@@ -666,12 +666,13 @@ var HabitatComponent = (function () {
         this.pokemonService.getHabitatById(this.habitatId).subscribe(function (dataLastEmittedFromObserver) {
             _this.habitatToDisplay = dataLastEmittedFromObserver;
         });
+        // get all pokemon to populate your equipped array
         this.pokemonService.getAllPokemon().subscribe(function (allPokemonFromFirebase) {
             _this.allPokemon = (allPokemonFromFirebase);
             _this.populateEquippedPokemonArray();
         });
         if (this.habitatId === "1") {
-            this.pokemonService.playSong("./assets/music/cave.mp3");
+            this.pokemonService.playSong("../assets/music/cave.mp3");
         }
         else if (this.habitatId === "2") {
             this.pokemonService.playSong("./assets/music/habitat.mp3");
@@ -1189,7 +1190,6 @@ var MyPokemonComponent = (function () {
     function MyPokemonComponent(router, pokemonService) {
         this.router = router;
         this.pokemonService = pokemonService;
-        this.switchPokemonSender = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.healPokemonSender = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.allPokemon = null;
         this.equippedPokemon = [];
@@ -1243,20 +1243,12 @@ var MyPokemonComponent = (function () {
             this.showAllPokemonBool = false;
         }
     };
-    MyPokemonComponent.prototype.switchPokemon = function (pokemonToSwitch) {
-        this.switchPokemonSender.emit(pokemonToSwitch);
-        ///  console.log(pokemonToSwitch);
-    };
     return MyPokemonComponent;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", Boolean)
 ], MyPokemonComponent.prototype, "battling", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
-    __metadata("design:type", Object)
-], MyPokemonComponent.prototype, "switchPokemonSender", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
     __metadata("design:type", Object)
@@ -1563,9 +1555,7 @@ var TutorialComponent = (function () {
         var allMoves = pokemonToBuild.moves;
         var equipped = true;
         pokemonToBuild = new __WEBPACK_IMPORTED_MODULE_2__pokemon_model__["a" /* Pokemon */](name, sprites, types, level, currentLevelXP, totalLevelXP, totalAccruedXP, currentHP, maxHP, speed, attack, defense, activeMoves, allMoves, equipped);
-        //  console.log(pokemonToBuild);
         this.pokemonService.catchPokemon(pokemonToBuild);
-        //console.log(pokemonToBuild);
     };
     TutorialComponent.prototype.bulbasaur = function () {
         this.apiUrl = "https://pokeapi.co/api/v2/pokemon/bulbasaur/";
